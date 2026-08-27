@@ -1,0 +1,7 @@
+interface:
+  display_name: "RKA Writer"
+  short_description: "Explicit academic manuscript drafting"
+  default_prompt: "Use $rka-writer to draft or revise this academic manuscript from the evidence I provide."
+
+policy:
+  allow_implicit_invocation: false

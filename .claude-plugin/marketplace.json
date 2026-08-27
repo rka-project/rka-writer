@@ -1,0 +1,19 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "rka-writer",
+  "description": "Explicit-only academic manuscript drafting from the standalone RKA Writer repository.",
+  "owner": {
+    "name": "Chenglong Fu"
+  },
+  "plugins": [
+    {
+      "name": "rka-writer",
+      "description": "Adds an explicitly invoked manuscript drafting and revision skill without RKA Core, MCP servers, hooks, or session-start behavior.",
+      "author": {
+        "name": "Chenglong Fu"
+      },
+      "category": "research",
+      "source": "./claude-plugin"
+    }
+  ]
+}

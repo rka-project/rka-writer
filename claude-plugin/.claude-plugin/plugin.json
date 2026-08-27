@@ -1,0 +1,18 @@
+{
+  "name": "rka-writer",
+  "version": "0.1.0",
+  "description": "Explicit-only academic manuscript drafting and revision workflows.",
+  "author": {
+    "name": "Chenglong Fu",
+    "url": "https://github.com/infinitywings"
+  },
+  "homepage": "https://github.com/infinitywings/rka-writer",
+  "repository": "https://github.com/infinitywings/rka-writer",
+  "license": "MIT",
+  "keywords": [
+    "academic-writing",
+    "manuscript",
+    "research",
+    "rka"
+  ]
+}
