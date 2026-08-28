@@ -1,7 +1,7 @@
 {
   "name": "rka-writer",
-  "version": "0.1.0",
-  "description": "Explicit-only academic manuscript drafting and revision workflows.",
+  "version": "0.2.0",
+  "description": "Explicit-only academic writing and separate advisory review workflows.",
   "author": {
     "name": "Chenglong Fu",
     "url": "https://github.com/infinitywings"
@@ -12,14 +12,16 @@
   "keywords": [
     "academic-writing",
     "manuscript",
+    "peer-review",
+    "nsf",
     "research",
     "rka"
   ],
   "skills": "./skills/",
   "interface": {
     "displayName": "RKA Writer",
-    "shortDescription": "Explicit academic manuscript drafting",
-    "longDescription": "An explicit-only academic manuscript drafting and revision skill. It does not install or activate RKA Core, hooks, or session-start behavior.",
+    "shortDescription": "Explicit academic writing and review",
+    "longDescription": "Explicit-only academic manuscript drafting plus separate advisory paper and NSF CISE review skills. Reviewers never activate automatically or run as drafting gates.",
     "developerName": "Chenglong Fu",
     "category": "Research",
     "capabilities": [
@@ -28,7 +30,7 @@
     ],
     "websiteURL": "https://github.com/infinitywings/rka-writer",
     "defaultPrompt": [
-      "Use $rka-writer to draft or revise this academic manuscript."
+      "Use $rka-writer to draft or revise this academic manuscript, or explicitly invoke one of the separate advisory reviewer skills."
     ],
     "brandColor": "#0F6E56"
   }

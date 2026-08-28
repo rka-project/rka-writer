@@ -1,4 +1,8 @@
-# Manuscript review (optional)
+# Manuscript self-check (optional)
+
+This is a lightweight check within a Writer session, not an independent peer
+review. Use one of the explicit reviewer skills when the researcher wants a
+separate referee or mock-panel assessment.
 
 Use this as an advisory whole-document read, not an automatic score or approval
 gate. The researcher decides which revisions serve the paper.

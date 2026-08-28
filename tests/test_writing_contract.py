@@ -49,6 +49,7 @@ def test_optional_references_are_short_advice_not_a_state_machine() -> None:
         "latex_audit.md",
         "manuscript_review.md",
         "persuasive_framing.md",
+        "separate_review_handoff.md",
     ]
     for path in references:
         text = path.read_text(encoding="utf-8")
@@ -78,3 +79,12 @@ def test_removed_runtime_guidance_is_not_distributed() -> None:
         )
         for token in forbidden:
             assert token not in corpus
+
+
+def test_separate_review_handoff_requires_context_isolation() -> None:
+    text = _read("references/separate_review_handoff.md")
+    flattened = " ".join(text.split())
+    assert "fresh task or session" in flattened
+    assert "isolated subagent" in flattened
+    assert "Do not load a reviewer skill into Writer's drafting context" in flattened
+    assert "A second pass in the same context is not isolation" in flattened

@@ -1,0 +1,90 @@
+{
+  "interaction_type": "internal_clarification",
+  "interaction_phase": "completed",
+  "initial_review_snapshot": {
+    "snapshot_id": "S-INITIAL-001",
+    "initial_mode": "quick",
+    "frozen_at": "2026-07-22T16:30:00-04:00",
+    "review_sha256": "c686d7e7f07b433661ee6214cffae4c4cc78319dceede50cf8f24b986b71b218",
+    "initial_report_label": "initial-referee-report.md",
+    "initial_report_sha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "artifact_hashes": [
+      {
+        "artifact_id": "A-MAIN",
+        "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      },
+      {
+        "artifact_id": "A-SUPP",
+        "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+      }
+    ],
+    "recommendation": "major_revision",
+    "confidence": 0.84,
+    "open_finding_ids": ["F-001", "F-002"]
+  },
+  "evidence_artifacts": [],
+  "question_batches": [
+    {
+      "round": 1,
+      "issued_at": "2026-07-22T16:35:00-04:00",
+      "rationale": "Resolve a decision-relevant ambiguity in the frozen fast-reader finding before considering any recommendation update.",
+      "disclosure_mode": "local_only",
+      "questions": [
+        {
+          "id": "Q-001",
+          "finding_id": "F-001",
+          "ambiguity": "The introduction may already define the shared decision in terminology the reviewer missed.",
+          "decision_relevance": "A verified pointer could resolve the fast-reader finding in the frozen manuscript.",
+          "requested_evidence": "Provide the page and sentence that defines the shared decision.",
+          "new_evidence_policy": "not_requested",
+          "evidence_treatment": "Use only a pointer to evidence already present in the frozen submission."
+        }
+      ]
+    }
+  ],
+  "author_responses": [
+    {
+      "question_id": "Q-001",
+      "received_at": "2026-07-22T17:15:00-04:00",
+      "primary_category": "already_supported_clarification",
+      "response_text": "The shared decision is defined in the final sentence of the first introduction paragraph.",
+      "secondary_notes": [],
+      "existing_location": "paper.pdf, page 1, Introduction, first paragraph, final sentence",
+      "new_evidence_summary": null,
+      "new_evidence_artifact_ids": [],
+      "claim_scope_change": null,
+      "planned_revision": null,
+      "external_disclosure_limit": "local_only",
+      "confidentiality_restrictions": "Keep the response and manuscript local; perform no external verification."
+    }
+  ],
+  "re_evaluations": [
+    {
+      "question_id": "Q-001",
+      "finding_id": "F-001",
+      "evaluator_reviewer_id": "R-GENERAL",
+      "status": "resolved_in_manuscript",
+      "verification_performed": "Re-read the cited sentence in the frozen paper.pdf and confirmed that it defines the shared decision.",
+      "original_severity": "major",
+      "updated_severity": "minor",
+      "original_confidence": 0.91,
+      "updated_confidence": 0.95,
+      "rationale": "The reviewer initially overlooked an existing definition, although its placement remains easy to miss.",
+      "required_manuscript_action": "No correctness repair is required; consider moving the sentence earlier for readability."
+    }
+  ],
+  "post_freeze_findings": [],
+  "revised_provisional_meta_review": {
+    "initial_recommendation": "major_revision",
+    "updated_provisional_recommendation": "major_revision",
+    "updated_confidence": 0.88,
+    "judgment_scope": "frozen_manuscript",
+    "resolved_finding_ids": ["F-001"],
+    "remaining_finding_ids": ["F-002"],
+    "disputed_finding_ids": [],
+    "post_freeze_finding_treatments": [],
+    "new_evidence_dependency_ids": [],
+    "limitations": ["The artifact was not executed."],
+    "rationale": "The clarification resolves the cognitive-load finding as an evidentiary objection, while the novelty comparison remains open."
+  }
+}

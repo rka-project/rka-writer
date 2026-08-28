@@ -1,0 +1,7 @@
+interface:
+  display_name: "Holistic Academic Reviewer"
+  short_description: "Rigorous paper and NSF CISE proposal reviews"
+  default_prompt: "Use $holistic-academic-reviewer to run a separate advisory review of my paper or NSF CISE proposal and prioritize the revisions that matter most."
+
+policy:
+  allow_implicit_invocation: false

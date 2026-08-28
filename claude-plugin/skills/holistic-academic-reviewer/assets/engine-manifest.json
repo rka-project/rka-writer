@@ -1,0 +1,201 @@
+{
+  "engines": [
+    {
+      "artifact_kind": "research_paper",
+      "engine_bundle_sha256": "sha256:97d232f4a0fc0c71fc346a67b275f2f23ddaad7e1650ccf58dc1cc61398d71d6",
+      "file_count": 16,
+      "files": [
+        {
+          "path": "ai-cyber-paper-reviewer/SKILL.md",
+          "sha256": "sha256:7eb060cd0f83b3dcfedff39272ba038a3993f837920c74237e6f5eb5ce38f1cf",
+          "size_bytes": 21969
+        },
+        {
+          "path": "ai-cyber-paper-reviewer/agents/openai.yaml",
+          "sha256": "sha256:46194edde5cc01b06a73be54a4a0ae9a79616f69c232aa2b796c60e0fa2861ee",
+          "size_bytes": 452
+        },
+        {
+          "path": "ai-cyber-paper-reviewer/assets/icon.svg",
+          "sha256": "sha256:49315dda7125ec5fc77ef5f2b96126d8b2121c6e72944b4702972e90f321d3ee",
+          "size_bytes": 1210
+        },
+        {
+          "path": "ai-cyber-paper-reviewer/references/domain-gates.md",
+          "sha256": "sha256:183d3c9111350a219efa1fcaf8acdb8b84cf3bd0a33cdc34ed5652b03831e594",
+          "size_bytes": 8051
+        },
+        {
+          "path": "ai-cyber-paper-reviewer/references/factuality-and-citation-audit.md",
+          "sha256": "sha256:9c68ae82ded60a7baa1c842b5a619676dfd276f913fc583ca5fca79d3d08a916",
+          "size_bytes": 7514
+        },
+        {
+          "path": "ai-cyber-paper-reviewer/references/fast-reader-audit.md",
+          "sha256": "sha256:339002086f113e2842df7a58d25771939749ddf8ce1d6b5a5d0047fd63bf71ed",
+          "size_bytes": 8882
+        },
+        {
+          "path": "ai-cyber-paper-reviewer/references/interactive-review-protocol.md",
+          "sha256": "sha256:f8498d0dcf4d61f32fcf188cfc022ec1035824f332473577e6ae6a9b38acb1e4",
+          "size_bytes": 17926
+        },
+        {
+          "path": "ai-cyber-paper-reviewer/references/output-template.md",
+          "sha256": "sha256:e48226e777f3c84e5c67397e3f496c7d17b74fc5e4d9bd6de8799d0d043fd258",
+          "size_bytes": 15708
+        },
+        {
+          "path": "ai-cyber-paper-reviewer/references/panel-protocol.md",
+          "sha256": "sha256:240a8447858a2e40020cf19599110c24c12c6949f3e6aaea19c75b9b6a96e628",
+          "size_bytes": 15863
+        },
+        {
+          "path": "ai-cyber-paper-reviewer/references/prose-artifact-and-style-audit.md",
+          "sha256": "sha256:bacd0e3bfc948ac5fd334026851633666a6f91d2f372f5fc3b0a21f59ec5ce5b",
+          "size_bytes": 6173
+        },
+        {
+          "path": "ai-cyber-paper-reviewer/references/review-rubric.md",
+          "sha256": "sha256:09f73a5b1a242efe9a3cbb7d9f6af106083567aaaafb6b614bcf56fc19d97b2c",
+          "size_bytes": 14996
+        },
+        {
+          "path": "ai-cyber-paper-reviewer/references/revision-playbook.md",
+          "sha256": "sha256:1ec358ab09737301a8d1188ac0e0c8ede388398f5219580b6576d7256353bafb",
+          "size_bytes": 9593
+        },
+        {
+          "path": "ai-cyber-paper-reviewer/references/venue-profile-protocol.md",
+          "sha256": "sha256:07f82e4c13c4e4afd4b1827a7b352205a2cecae2f396ba9a0385d8bb51a44eea",
+          "size_bytes": 5971
+        },
+        {
+          "path": "ai-cyber-paper-reviewer/schemas/model-family-registry.schema.json",
+          "sha256": "sha256:c4304f207021c8eeed75bfcf4cac538c16a70172cfce0e092acf410e49440706",
+          "size_bytes": 897
+        },
+        {
+          "path": "ai-cyber-paper-reviewer/schemas/review-bundle.schema.json",
+          "sha256": "sha256:bdf7a52dafe90f6165c51a258d57e837e8ff24338248171986aa4d57da7a67ac",
+          "size_bytes": 35517
+        },
+        {
+          "path": "ai-cyber-paper-reviewer/scripts/validate_review.py",
+          "sha256": "sha256:147215715be27a2db4e396d3f150d10299fa026586b898eb8c54a9620aed1d76",
+          "size_bytes": 169382
+        }
+      ],
+      "id": "ai-cyber-paper-reviewer",
+      "root": "ai-cyber-paper-reviewer",
+      "validator": "ai-cyber-paper-reviewer/scripts/validate_review.py"
+    },
+    {
+      "artifact_kind": "nsf_cise_proposal",
+      "engine_bundle_sha256": "sha256:99247d9ef3b8f3cc47237ba6f1b0e09ac2ceb230b7f5f7303b82ef949ceb6455",
+      "file_count": 19,
+      "files": [
+        {
+          "path": "nsf-cise-mock-panelist/SKILL.md",
+          "sha256": "sha256:de434df2801a29312063a145870cfc016088f8ca0dedacefd3bf5a46bcaea044",
+          "size_bytes": 26690
+        },
+        {
+          "path": "nsf-cise-mock-panelist/agents/openai.yaml",
+          "sha256": "sha256:66395408aa4acd79826b926b95d5cb6637da2b9adad916f69861e26c26469f5c",
+          "size_bytes": 347
+        },
+        {
+          "path": "nsf-cise-mock-panelist/assets/human-calibration-record.schema.json",
+          "sha256": "sha256:075b1c19e57e045225a1b74d13274a87760fdfcf8712fcf255b9b13e84f2769d",
+          "size_bytes": 4468
+        },
+        {
+          "path": "nsf-cise-mock-panelist/assets/individual-review.schema.json",
+          "sha256": "sha256:6e8ebc1bc239ef472a7ec30d3bea0b2f3dc4c07741e21551708c5f760c65b986",
+          "size_bytes": 12514
+        },
+        {
+          "path": "nsf-cise-mock-panelist/assets/panel-summary.schema.json",
+          "sha256": "sha256:7b3ce99b609c0911b5a743cc272152be15ced2699eaa8f3ce4c865578b8937d0",
+          "size_bytes": 6805
+        },
+        {
+          "path": "nsf-cise-mock-panelist/references/author-style-contract.md",
+          "sha256": "sha256:8d6036c17d672a20881d2b7a6934fbe9c8a0e0427c5c80acad95dabcd5f473ba",
+          "size_bytes": 7711
+        },
+        {
+          "path": "nsf-cise-mock-panelist/references/design-provenance.md",
+          "sha256": "sha256:53a1770e6e150760557223ab79c80ac3141808f7ec30b28571a87202a4327a31",
+          "size_bytes": 12936
+        },
+        {
+          "path": "nsf-cise-mock-panelist/references/language-and-structure-lens.md",
+          "sha256": "sha256:196e434d739d40cc8be4f3ec5d9aa72d99cbe1748fe03b85fa492e632de7d32e",
+          "size_bytes": 15320
+        },
+        {
+          "path": "nsf-cise-mock-panelist/references/novelty-protocol.md",
+          "sha256": "sha256:a1bf073a01a632254733bac5e38e6d0657da3307b70d59c08f3ae88d63835179",
+          "size_bytes": 3670
+        },
+        {
+          "path": "nsf-cise-mock-panelist/references/nsf-authority.md",
+          "sha256": "sha256:23e315a31f3412d690debbac30e17f02e015bba595522436f5f0f266cff97106",
+          "size_bytes": 6748
+        },
+        {
+          "path": "nsf-cise-mock-panelist/references/output-contract.md",
+          "sha256": "sha256:57881da9ee93f9c18d981155f0e18f5a25e985d805878d24c59129d402a2b7d3",
+          "size_bytes": 13434
+        },
+        {
+          "path": "nsf-cise-mock-panelist/references/panel-rubric.md",
+          "sha256": "sha256:9580d000224fd8824b96168797ad2cb62e6585ef42b428e19c012b474846f576",
+          "size_bytes": 7882
+        },
+        {
+          "path": "nsf-cise-mock-panelist/references/reliability-protocol.md",
+          "sha256": "sha256:77b3fdc61baf27bf7c9bf12e70d9deb88be54c502f967ff56e802d5d0964cfd8",
+          "size_bytes": 10692
+        },
+        {
+          "path": "nsf-cise-mock-panelist/scripts/aggregate_panel.py",
+          "sha256": "sha256:cb096cc2a3c28827ce5de0baa3cdb82239c24d3fdc9bcd64852b72c9a9f67409",
+          "size_bytes": 11123
+        },
+        {
+          "path": "nsf-cise-mock-panelist/scripts/build_artifact_manifest.py",
+          "sha256": "sha256:7e1c808dcea412e933ac5f23d6f78b0a22f806525f92c369dfde4bb3ee45762a",
+          "size_bytes": 8291
+        },
+        {
+          "path": "nsf-cise-mock-panelist/scripts/build_review_packet.py",
+          "sha256": "sha256:a69a5b4acba3ae4df19b2bd9b5b86eb09afa210ac5b158dd6972a879632772a6",
+          "size_bytes": 9238
+        },
+        {
+          "path": "nsf-cise-mock-panelist/scripts/protocol_digest.py",
+          "sha256": "sha256:de420bcfe68c2770bf8633285714f0297eb802771c17a33b25bac52c26267e0d",
+          "size_bytes": 3115
+        },
+        {
+          "path": "nsf-cise-mock-panelist/scripts/schema_contract.py",
+          "sha256": "sha256:20ff3902ab25d1f8f018fbac100928d38daef93e7ced700376ecd5cd24a5a769",
+          "size_bytes": 6022
+        },
+        {
+          "path": "nsf-cise-mock-panelist/scripts/validate_review.py",
+          "sha256": "sha256:c8525cb48d45ebabcb32b600c7d83c96695129938f4696c59231a04c0dcb4349",
+          "size_bytes": 63552
+        }
+      ],
+      "id": "nsf-cise-mock-panelist",
+      "root": "nsf-cise-mock-panelist",
+      "validator": "nsf-cise-mock-panelist/scripts/validate_review.py"
+    }
+  ],
+  "hash_algorithm": "sha256",
+  "manifest_version": "1.0.0"
+}

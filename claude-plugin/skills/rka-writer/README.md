@@ -1,8 +1,10 @@
 # RKA Writer skill
 
-This directory contains the canonical Codex copy of the explicit-only
-`$rka-writer` skill. It is intentionally small: one writing entrypoint and four
-optional references. It does not include a workflow engine, mandatory planning
+This directory contains the explicit-only RKA Writer skill. Invoke it with the
+host-specific command documented in the repository README. It is intentionally
+small: one writing entrypoint and five
+optional references, including a narrow handoff for separately frozen review
+reports. It does not include a workflow engine, mandatory planning
 artifacts, manuscript state machine, reference-validation service, or automatic
 session role.
 
