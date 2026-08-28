@@ -6,8 +6,8 @@
     "name": "Chenglong Fu",
     "url": "https://github.com/infinitywings"
   },
-  "homepage": "https://github.com/infinitywings/rka-writer",
-  "repository": "https://github.com/infinitywings/rka-writer",
+  "homepage": "https://github.com/rka-project/rka-writer",
+  "repository": "https://github.com/rka-project/rka-writer",
   "license": "MIT",
   "keywords": [
     "academic-writing",
@@ -28,7 +28,7 @@
       "Interactive",
       "Write"
     ],
-    "websiteURL": "https://github.com/infinitywings/rka-writer",
+    "websiteURL": "https://github.com/rka-project/rka-writer",
     "defaultPrompt": [
       "Use $rka-writer to draft or revise this academic manuscript, or explicitly invoke one of the separate advisory reviewer skills."
     ],
