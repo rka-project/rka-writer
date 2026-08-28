@@ -1,7 +1,7 @@
 {
   "name": "rka-writer",
-  "version": "0.1.0",
-  "description": "Explicit-only academic manuscript drafting and revision workflows.",
+  "version": "0.2.0",
+  "description": "Explicit-only academic writing and separate advisory review workflows.",
   "author": {
     "name": "Chenglong Fu",
     "url": "https://github.com/infinitywings"
@@ -12,6 +12,8 @@
   "keywords": [
     "academic-writing",
     "manuscript",
+    "peer-review",
+    "nsf",
     "research",
     "rka"
   ]

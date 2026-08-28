@@ -2,7 +2,7 @@
 name: rka-writer
 description: "Draft or revise an academic manuscript only when the user explicitly invokes $rka-writer or explicitly requests this standalone Writer workflow. Do not load for ordinary RKA retrieval, research discussion, coding, project maintenance, or general writing."
 metadata:
-  version: "0.1.0"
+  version: "0.2.0"
 ---
 
 # RKA Writer
@@ -136,7 +136,9 @@ Load only what the task requires:
 - [`references/persuasive_framing.md`](references/persuasive_framing.md) for
   evidence-bounded advocacy and limitation triage;
 - [`references/manuscript_review.md`](references/manuscript_review.md) for a
-  pre-submission review;
+  lightweight pre-submission self-check;
+- [`references/separate_review_handoff.md`](references/separate_review_handoff.md)
+  only when revising from a separately frozen reviewer report;
 - [`references/latex_audit.md`](references/latex_audit.md) for rendered-layout
   checks.
 

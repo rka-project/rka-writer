@@ -1,0 +1,255 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://internal.example/nsf-cise-mock-panelist/individual-review.schema.json",
+  "title": "NSF CISE Mock Individual Review",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "proposal_id",
+    "reviewer_id",
+    "reviewer_role",
+    "reviewer_profile",
+    "reviewer_route",
+    "reviewer_model",
+    "reviewer_family",
+    "review_independence",
+    "conflict_check",
+    "reviewed_input_hashes",
+    "rating",
+    "summary",
+    "argument_reconstruction",
+    "intellectual_merit",
+    "broader_impacts",
+    "writing_and_accessibility",
+    "technical_precision_integrity",
+    "additional_criteria",
+    "dimensions",
+    "findings",
+    "questions_for_panel",
+    "revision_priorities"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.1"},
+    "proposal_id": {"type": "string", "minLength": 1},
+    "reviewer_id": {"type": "string", "minLength": 1},
+    "reviewer_role": {"type": "string", "minLength": 1},
+    "reviewer_profile": {"$ref": "#/$defs/reviewerProfile"},
+    "reviewer_route": {"$ref": "#/$defs/reviewerRoute"},
+    "reviewer_model": {"type": "string", "minLength": 1},
+    "reviewer_family": {"type": "string", "minLength": 1},
+    "review_independence": {"enum": ["same-family", "cross-family", "human", "single-context"]},
+    "conflict_check": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "notes"],
+      "properties": {
+        "status": {"enum": ["clear", "potential", "blocked", "not_assessed"]},
+        "notes": {"type": "string"}
+      }
+    },
+    "reviewed_input_hashes": {"type": "object", "additionalProperties": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}},
+    "rating": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "scale_source", "rationale", "confidence"],
+      "properties": {
+        "value": {"enum": ["excellent", "very_good", "good", "fair", "poor", "unrated"]},
+        "adjacent_split": {"enum": ["excellent", "very_good", "good", "fair", "poor"]},
+        "scale_source": {"enum": ["exact_panel_instructions", "public_mock_scale"]},
+        "rationale": {"type": "string", "minLength": 1},
+        "confidence": {"enum": ["high", "medium", "low"]}
+      },
+      "allOf": [
+        {"if": {"properties": {"value": {"const": "excellent"}}}, "then": {"properties": {"adjacent_split": {"enum": ["very_good"]}}}},
+        {"if": {"properties": {"value": {"const": "very_good"}}}, "then": {"properties": {"adjacent_split": {"enum": ["excellent", "good"]}}}},
+        {"if": {"properties": {"value": {"const": "good"}}}, "then": {"properties": {"adjacent_split": {"enum": ["very_good", "fair"]}}}},
+        {"if": {"properties": {"value": {"const": "fair"}}}, "then": {"properties": {"adjacent_split": {"enum": ["good", "poor"]}}}},
+        {"if": {"properties": {"value": {"const": "poor"}}}, "then": {"properties": {"adjacent_split": {"enum": ["fair"]}}}},
+        {"if": {"properties": {"value": {"const": "unrated"}}}, "then": {"not": {"required": ["adjacent_split"]}}}
+      ]
+    },
+    "summary": {"type": "string", "minLength": 1},
+    "argument_reconstruction": {"$ref": "#/$defs/argumentReconstruction"},
+    "intellectual_merit": {"$ref": "#/$defs/criterionSection"},
+    "broader_impacts": {"$ref": "#/$defs/criterionSection"},
+    "writing_and_accessibility": {"$ref": "#/$defs/writingSection"},
+    "technical_precision_integrity": {"$ref": "#/$defs/technicalSection"},
+    "additional_criteria": {"type": "array", "items": {"$ref": "#/$defs/additionalCriterion"}},
+    "dimensions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "importance_gap",
+        "novelty_transformative",
+        "contribution_intellectual_merit",
+        "approach_evaluation",
+        "feasibility_team_resources",
+        "broader_impacts",
+        "solicitation_fit",
+        "presentation_organization",
+        "general_cs_accessibility",
+        "writing_precision_professionalism",
+        "technical_precision_integrity"
+      ],
+      "properties": {
+        "importance_gap": {"$ref": "#/$defs/dimension"},
+        "novelty_transformative": {"$ref": "#/$defs/dimension"},
+        "contribution_intellectual_merit": {"$ref": "#/$defs/dimension"},
+        "approach_evaluation": {"$ref": "#/$defs/dimension"},
+        "feasibility_team_resources": {"$ref": "#/$defs/dimension"},
+        "broader_impacts": {"$ref": "#/$defs/dimension"},
+        "solicitation_fit": {"$ref": "#/$defs/dimension"},
+        "presentation_organization": {"$ref": "#/$defs/dimension"},
+        "general_cs_accessibility": {"$ref": "#/$defs/dimension"},
+        "writing_precision_professionalism": {"$ref": "#/$defs/dimension"},
+        "technical_precision_integrity": {"$ref": "#/$defs/dimension"}
+      }
+    },
+    "findings": {"type": "array", "minItems": 2, "items": {"$ref": "#/$defs/finding"}},
+    "questions_for_panel": {"type": "array", "items": {"type": "string"}},
+    "revision_priorities": {"type": "array", "items": {"type": "string"}}
+  },
+  "$defs": {
+    "reviewerProfile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["profile_id", "simulated_background", "domain_familiarity", "selection_rationale", "limitations"],
+      "properties": {
+        "profile_id": {"enum": ["general_cs", "adjacent_cise", "domain_methods"]},
+        "simulated_background": {"type": "string", "minLength": 1},
+        "domain_familiarity": {"enum": ["non_specialist", "adjacent", "specialist"]},
+        "selection_rationale": {"type": "string", "minLength": 1},
+        "limitations": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "reviewerRoute": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["route_id", "provenance_source", "family_basis"],
+      "properties": {
+        "route_id": {"type": "string", "minLength": 1},
+        "provenance_source": {"enum": ["runtime_metadata", "human_attestation", "self_reported", "unavailable"]},
+        "family_basis": {"type": "string", "minLength": 1}
+      }
+    },
+    "argumentReconstruction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["problem", "gap", "central_idea", "aims", "decisive_tests", "expected_knowledge", "first_breakpoint"],
+      "properties": {
+        "problem": {"type": "string", "minLength": 1},
+        "gap": {"type": "string", "minLength": 1},
+        "central_idea": {"type": "string", "minLength": 1},
+        "aims": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+        "decisive_tests": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+        "expected_knowledge": {"type": "string", "minLength": 1},
+        "first_breakpoint": {"type": "string", "minLength": 1}
+      }
+    },
+    "criterionSection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["strength_finding_ids", "weakness_finding_ids"],
+      "properties": {
+        "strength_finding_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+        "weakness_finding_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}}
+      }
+    },
+    "writingSection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["terminology_notes", "strength_finding_ids", "weakness_finding_ids"],
+      "properties": {
+        "terminology_notes": {"type": "string", "minLength": 1},
+        "strength_finding_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+        "weakness_finding_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string"}}
+      },
+      "anyOf": [
+        {"properties": {"strength_finding_ids": {"minItems": 1}}},
+        {"properties": {"weakness_finding_ids": {"minItems": 1}}}
+      ]
+    },
+    "technicalSection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["checks_performed", "unresolved_checks", "strength_finding_ids", "weakness_finding_ids"],
+      "properties": {
+        "checks_performed": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "unresolved_checks": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "strength_finding_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+        "weakness_finding_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string"}}
+      },
+      "anyOf": [
+        {"properties": {"strength_finding_ids": {"minItems": 1}}},
+        {"properties": {"weakness_finding_ids": {"minItems": 1}}}
+      ]
+    },
+    "additionalCriterion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["criterion", "source", "strength_finding_ids", "weakness_finding_ids"],
+      "properties": {
+        "criterion": {"type": "string", "minLength": 1},
+        "source": {"type": "string", "minLength": 1},
+        "strength_finding_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+        "weakness_finding_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string"}}
+      }
+    },
+    "dimension": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["assessment", "rationale", "finding_ids"],
+      "properties": {
+        "assessment": {"enum": ["strong", "adequate", "weak", "not_assessable"]},
+        "rationale": {"type": "string", "minLength": 1},
+        "finding_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}}
+      }
+    },
+    "finding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "issue_key", "severity", "stance", "criterion_group", "audiences_affected", "impact_types", "location", "claim", "plain_panel_concern", "technical_basis", "evidence", "criterion", "rationale", "consequence", "action", "revision_type", "epistemic_status"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "issue_key": {"type": "string", "minLength": 1},
+        "severity": {"enum": ["blocker", "major", "moderate", "minor"]},
+        "stance": {"enum": ["strength", "weakness", "question"]},
+        "criterion_group": {"enum": ["intellectual_merit", "broader_impacts", "additional_criterion", "presentation", "technical_integrity", "compliance", "external_novelty"]},
+        "audiences_affected": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"enum": ["general_cs", "adjacent_cise", "domain_or_methods_specialist", "all_panelists"]}
+        },
+        "impact_types": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"enum": ["scientific_validity", "contribution_clarity", "comprehension", "navigation", "reviewer_confidence", "feasibility", "broader_impacts", "compliance", "presentation"]}
+        },
+        "location": {"type": "string", "minLength": 1},
+        "claim": {"type": "string", "minLength": 1},
+        "plain_panel_concern": {"type": "string", "minLength": 1},
+        "technical_basis": {"type": "string", "minLength": 1},
+        "evidence": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/evidence"}},
+        "criterion": {"type": "string", "minLength": 1},
+        "rationale": {"type": "string", "minLength": 1},
+        "consequence": {"type": "string", "minLength": 1},
+        "action": {"type": "string", "minLength": 1},
+        "revision_type": {"enum": ["preserve_or_reinforce", "copyedit", "prose_clarification", "reorganization", "terminology_alignment", "figure_revision", "new_analysis", "new_evidence", "study_redesign", "institutional_confirmation", "policy_verification"]},
+        "epistemic_status": {"enum": ["verified", "proposal_grounded", "literature_grounded", "policy_grounded", "inference", "open_question"]}
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source", "location", "note"],
+      "properties": {
+        "source": {"type": "string", "minLength": 1},
+        "location": {"type": "string", "minLength": 1},
+        "note": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

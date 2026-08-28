@@ -1,0 +1,9 @@
+interface:
+  display_name: "AI Cyber Paper Reviewer"
+  short_description: "Rigorous AI and cybersecurity peer review"
+  icon_small: "./assets/icon.svg"
+  icon_large: "./assets/icon.svg"
+  default_prompt: "Use $ai-cyber-paper-reviewer to run a rigorous, read-only review, give concrete fast-reader presentation repairs, and ask decision-relevant questions only after freezing the manuscript-only assessment."
+
+policy:
+  allow_implicit_invocation: false
