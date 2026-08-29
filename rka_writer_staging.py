@@ -20,10 +20,10 @@ import sys
 import tempfile
 import zipfile
 from collections import Counter
+from collections.abc import Iterable, Mapping, Sequence
 from dataclasses import dataclass
 from pathlib import Path, PurePosixPath
-from typing import Any, Iterable, Mapping, Sequence
-
+from typing import Any
 
 CONTRACT_PATH = Path(__file__).with_name("contracts") / "rka-legacy-writer-export-v1.json"
 EQUIVALENCE_CONTRACT = "rka-writer-staging-equivalence/v1"

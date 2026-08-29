@@ -18,7 +18,7 @@ CONTRACT = ROOT / "contracts" / "rka-legacy-writer-export-v1.json"
 GOLDEN_BUNDLE_B64 = ROOT / "tests" / "legacy_writer_export_v1.zip.b64"
 sys.path.insert(0, str(ROOT))
 
-import rka_writer_staging as staging  # noqa: E402
+import rka_writer_staging as staging
 
 
 def _canonical(value: object) -> bytes:
