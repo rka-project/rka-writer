@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import ast
 import json
 import re
 import subprocess
@@ -113,11 +114,24 @@ def test_no_bundled_mcp_or_session_bootstrap() -> None:
 
 
 def test_distributed_python_has_no_core_imports() -> None:
-    core_import = re.compile(r"(?m)^\s*(?:from\s+rka(?:\.|\s)|import\s+rka(?:\.|\s|$))")
     offenders = []
-    for path in [*SKILLS.rglob("*.py"), *(ROOT / "eval-harness").rglob("*.py")]:
-        if core_import.search(path.read_text(encoding="utf-8")):
-            offenders.append(path.relative_to(ROOT).as_posix())
+    excluded_roots = {".git", ".pytest_cache", ".ruff_cache", ".venv", "tests"}
+    for path in ROOT.rglob("*.py"):
+        relative = path.relative_to(ROOT)
+        if any(part in excluded_roots or part == "__pycache__" for part in relative.parts):
+            continue
+        tree = ast.parse(path.read_text(encoding="utf-8"), filename=str(relative))
+        for node in ast.walk(tree):
+            if isinstance(node, ast.Import) and any(
+                alias.name == "rka" or alias.name.startswith("rka.") for alias in node.names
+            ):
+                offenders.append(relative.as_posix())
+                break
+            if isinstance(node, ast.ImportFrom) and node.module and (
+                node.module == "rka" or node.module.startswith("rka.")
+            ):
+                offenders.append(relative.as_posix())
+                break
     assert offenders == []
 
 
@@ -130,11 +144,15 @@ def test_claude_asset_mirrors_match_canonical_trees() -> None:
             path.relative_to(canonical_root)
             for path in canonical_root.rglob("*")
             if path.is_file()
+            and "__pycache__" not in path.parts
+            and path.suffix not in {".pyc", ".pyo"}
         }
         claude_files = {
             path.relative_to(claude_root)
             for path in claude_root.rglob("*")
             if path.is_file()
+            and "__pycache__" not in path.parts
+            and path.suffix not in {".pyc", ".pyo"}
         }
         assert claude_files == canonical_files, f"Claude file-set drift: {skill_name}"
         for relative in sorted(canonical_files):
