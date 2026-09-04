@@ -1,6 +1,7 @@
 # ADR 0002: Invalidate dependents instead of silently regenerating them
 
 - Status: Accepted
+- Refined by: [ADR 0008](0008-paper-centered-incremental-commitment.md); impact classification replaces blanket invalidation, while no silent rewriting remains in force.
 - Date: 2026-09-03
 - Decision owner: Chenglong Fu
 - RKA decision: `dec_01M1MZZXK74SNS0ZNMHE47QJPB`

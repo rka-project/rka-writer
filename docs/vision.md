@@ -2,39 +2,41 @@
 
 ## Problem
 
-General-purpose writing agents can move from research records to polished prose
-while silently choosing the paper's question, claim strength, evidence meaning,
-narrative role, and terminology. Repeated broad rewrites can then oscillate
-because upstream decisions are neither explicit nor versioned.
+Writing agents can silently choose claims, evidence interpretations, narrative
+roles and terms while producing fluent prose. Broad revisions then drift or
+oscillate because author intent is neither explicit nor durable.
 
 ## Product thesis
 
-RKA Writer progressively compiles reviewed research knowledge and explicit
-researcher decisions into a versioned authoring graph. Prose is a downstream,
-bounded realization of approved meaning rather than the primary state of the
-system.
+RKA Writer helps researchers think and write through progressive, reviewable
+commitments. A paper-centered interface supports discussion; the Authoring Graph
+preserves meaning, evidence and decisions underneath. Agent prose is realized
+one admitted intent at a time, with full-paper and paragraph awareness.
 
-## Primary user
+The graph is infrastructure for collaboration, not a scientific proof system
+or a requirement that the researcher operate an approval console.
 
-A researcher writing a technical paper who wants AI assistance without
-delegating scientific meaning, evidence interpretation, or final terminology.
+## Primary user and goals
 
-## Goals
+A technical-paper author who wants assistance without delegating scientific
+meaning. Help them establish the question and claim portfolio, choose evidence,
+shape a Paper Spine and outline, plan paragraphs, stabilize terms and express
+sentences. Preserve direct edits, justified pivots and recovery across sessions.
 
-- converge from central research questions to sentence-level realization;
-- keep claims, evidence use, narrative function, and terms explicit;
-- make every manuscript sentence traceable to an approved intent;
-- expose the impact of upstream changes without automatic rewriting;
-- resume work across sessions without asking the model to reconstruct intent;
-- use RKA Core as the primary provenance substrate; and
-- support local, privacy-preserving manuscript work.
+Keep Core authoritative for research records and Writer responsible for
+authoring decisions. Learn term/prose/tone preferences through explicit input,
+selected sources and consented calibration. Use only subscription-included
+inference through qualified official hosts. Keep local storage and recovery
+usable without inference; disclose that cloud-backed processing sends selected
+content off-device.
 
-## Non-goals
+## Non-goals and success
 
-- one-click paper generation;
-- autonomous selection of consequential scientific meaning;
-- storing canonical research truth inside Writer;
-- treating a model transcript as durable authoring state;
-- automatic incorporation of reviewer findings;
-- copying the entire RKA database into a model context; or
-- building a general editor before the W1 convergence path is validated.
+No autonomous paper generation, hidden author approval, automatic reviewer
+incorporation, whole-database model context, source-text imitation, API or
+extra-paid continuation. Do not build a general editor before testing the
+smallest useful workflow.
+
+Success requires scientific fidelity, author control with reasonable effort,
+reader comprehension, natural expression and recoverability. A complete schema,
+many locked artifacts or green repository tests is not enough.

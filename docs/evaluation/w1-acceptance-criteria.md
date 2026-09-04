@@ -1,47 +1,83 @@
 # W1 Acceptance Criteria
 
-W1 validates one fully traceable paragraph, not general manuscript generation.
+Validate one traceable paragraph in a paper scaffold, not a paragraph detached
+from the whole argument. Use the [fixture](w1-fixture-spec.md) and record
+observed results, failed cases and open limitations.
 
-## Required fixture
+## Entry gate
 
-The scenario contains:
+The W0 author walkthrough has produced findings and a usable minimal contract;
+the chosen host's auth, included-only billing and actual isolation are
+established; and the researcher explicitly authorizes the bounded prototype.
+A design PR merge or fake-host test is not entry evidence.
 
-- one provisional and one approved paper question;
-- one publication claim with scope and strength;
-- two to four evidence uses with exact Core or provisional-source bindings;
-- two narrative alternatives and one researcher selection;
-- one approved paragraph contract;
-- four to six sentence intents;
-- three to five term locks;
-- accepted sentence realizations and one paragraph source map; and
-- one later upstream claim revision.
+## Required slice
 
-## Functional gates
+- Question and claim alternatives, including a rejected overgeneralization.
+- Selected evidence, qualification and counterevidence with real fixture
+  locators, versions and hashes.
+- Paper Spine, section outline, paragraph allocation and narrative choice.
+- One exact reviewed purpose/intent approval bundle; no hidden child approval.
+- Minimal scoped style and required terms; one same-intent comparison and a
+  declined generalization.
+- One-intent candidate sets, separate acceptance and mapped document bytes.
+- Evidence withdrawal, claim revision, metadata change and advisory style
+  change, each with explicit impact expectations.
+- Human direct editing, stale-patch refusal, duplicate result handling and
+  cold-start recovery.
 
-- Every realization passes sentence admission before generation.
-- Each sentence traces to intent, paragraph contract, narrative move,
-  publication claim, evidence use, term locks, and researcher authorization.
-- Unselected evidence cannot enter the paragraph.
-- A changed upstream claim marks exactly the affected artifacts stale.
-- The upstream change produces no manuscript-byte mutation.
-- The researcher can revalidate, revise, branch, or retire stale artifacts.
-- Cold-start recovery reconstructs current accepted state and next decision.
+## Three validation layers
 
-## Hard safety gates
+### Structural and state safety
 
-- Silent claim changes: 0.
-- Silent term changes: 0.
-- Silent evidence reinterpretations: 0.
-- Silent upstream-triggered rewrites: 0.
-- Unsupported factual or comparative statements: 0.
-- Cross-project Core bindings: 0.
+Automated tests exercise authorization scope, version/locator validity,
+evidence-reference allowlists, configured term checks, output bounds, impact
+traversal, immutable history and document reconciliation. Test failures as well
+as success, including si-01's dependency on the withdrawn e3 observation.
 
-## Researcher-facing gates
+Require zero unauthorized accepted-state mutations, silent upstream-triggered
+rewrites, silent rebinding of historical approvals, overwritten human edits,
+cross-project bindings, direct provider API calls or paid-continuation paths
+in the exercised cases. This is bounded test evidence, not a universal proof.
 
-- Consequential choices are understandable without exposing raw schemas.
-- The researcher can explain why every sentence exists.
-- No decision batch contains more than three genuinely coupled choices.
-- The interface reveals impact before requesting regeneration.
+### Scientific assessment
 
-Passing W1 authorizes W2 design; it does not by itself authorize a general
-editor, section generator, or public Writer deployment.
+A reviewer checks every fixture sentence against its evidence, scope and
+warrant, including transitions and material counterevidence. Known support gaps
+must be corrected/narrowed or left unresolved outside accepted scientific text.
+Track assessor, evidence, uncertainty and disposition. Human approval is not
+automatically scientific verification.
+
+Report unsupported statements, missed broadening and false alarms. A supplied
+negative example can test workflow handling but cannot establish a general
+semantic detector's accuracy.
+
+### Author and reader assessment
+
+The author can explain the question → section → paragraph → sentence
+relationship, the approved bundle and each change's impact. Observe effort,
+misunderstanding, repeated confirmations and justified versus accidental
+reopening. A separate reader should recover the intended bounded claim and
+not infer unsupported safety/generalization results.
+
+Record style preference separately from scientific fidelity. Do not evaluate
+voice only by compliance with the system's own generated profile.
+
+## Runtime evidence
+
+Require supported, current authentication, host-enforced included-only usage
+and actual context/tool/file isolation. Unknown properties fail closed.
+A quota observation alone does not meet the billing gate. A narrow task
+envelope alone does not meet the isolation gate.
+
+Use synthetic conformance cases for auth/policy change, expiry, exhaustion,
+forbidden access, stale result, timeout, cancellation and duplicate delivery.
+Do not purchase or consume extra paid credits to test the boundary.
+Record observed host behavior separately from fake-host results.
+
+## Completion
+
+Retain test artifacts, reviewer dispositions, author observations, recovery
+traces and remaining limits. W1 passes only when all applicable structural,
+scientific, author/reader and execution gates pass. Partial success stays
+partial. Explicitly decide which contracts can freeze before expanding to W2.

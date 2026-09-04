@@ -2,17 +2,33 @@
 
 | Term | Meaning |
 |---|---|
-| Authoring Graph | Versioned Writer artifacts and exact dependency edges from paper question to sentence realization. |
-| Paper Question | The researcher-approved central question the public paper answers; distinct from an exploratory Core research question. |
-| Publication Claim | A manuscript-facing proposition with explicit strength, scope, and qualification. |
-| Evidence Use | A deliberate interpretation of selected evidence as support, qualification, contradiction, or background for a publication claim. |
-| Narrative Move | A reader-facing rhetorical action such as establish problem, expose gap, introduce insight, support claim, qualify scope, or state payoff. |
-| Paragraph Contract | Approved purpose, reader question, claim/evidence obligations, entry state, exit state, and transition for one paragraph. |
-| Sentence Intent | An approved semantic and rhetorical function that a bounded sentence realization must satisfy. |
-| Term Entry | A concept and candidate labels considered during authoring. |
-| Term Lock | A researcher-approved label, definition, first-use rule, and allowed variants. |
-| Semantic admission | The readiness and permission check that must pass before a downstream artifact or prose realization may be produced. |
-| Realization | One concrete sentence expressing an approved Sentence Intent. |
-| Stale | A downstream artifact whose exact upstream version no longer matches current accepted state. |
-| Semantic patch | A reviewable proposal that changes structured authoring meaning, dependencies, or approval state. |
-| Core binding | A versioned, project-scoped reference from Writer to a Core entity and source locator. |
+| Authoring Graph | Versioned Writer meaning, decisions and dependency lineage; not a proof of correctness. |
+| Paper Question | The public paper's approved central question, distinct from broader exploratory questions. |
+| Publication Claim Portfolio | Selected claims and their scope, alongside rejected/parked alternatives. |
+| Evidence Use | A reviewed use of a source as support, qualification, contradiction or background, with a warrant and exact binding. |
+| Paper Spine | The paper-wide argument and contribution path that organizes section roles. |
+| Section/Paragraph Allocation | The reader job assigned to each section/paragraph and what belongs elsewhere. |
+| Narrative Move | A rhetorical step such as expose a gap, support a claim or qualify scope. |
+| Paragraph Contract | Purpose, reader question, takeaway, entry/exit state, evidence obligations and exclusions. |
+| Sentence Intent | Approved proposition/rhetorical function; not necessarily prewritten prose. |
+| Paper Context Capsule | Compact version-bound orientation to the paper, current section, definitions and allocation; not blanket evidence authorization. |
+| Approval Bundle | Exact displayed coupled artifact versions, bases, scope/exclusions and preview digest accepted by a researcher. |
+| Term Lock | Approved concept label, definition, variants and first-use constraints. |
+| Style Source | Explicitly selected material with role, locator and permitted analysis/use scope. |
+| Style Observation | Source-grounded interpretation or measurement, not an approved author preference. |
+| Style Profile | Versioned author-approved term/prose/tone preferences with scope, exceptions and provenance. |
+| Style Rule | Expression behavior with separate polarity and enforcement, not an automatically learned habit. |
+| Resolved Style Contract | Applicable approved rules, overrides and locks for the current target. |
+| Calibration Event | Same-intent comparison and author response; rule promotion requires separate consent. |
+| Semantic Admission | Prerequisite state/approval checks before production; does not prove entailment. |
+| Realization | A proposed or accepted sentence expressing an admitted intent. |
+| Impact Candidate | Downstream object reached after a relevant upstream change, awaiting effect classification. |
+| Known-invalid | Dependency is demonstrably unusable for the current contract; affected production blocks. |
+| Needs-review | Semantic effect is unresolved; affected production blocks, human inspection/editing remains available. |
+| Revalidation | New compatibility/approval event or version; never mutation of old lineage. |
+| Semantic Patch | Reviewable change to authoring meaning, bindings or authorization against exact base versions. |
+| Unreconciled Text | Preserved human/external edits not yet mapped to current admitted authoring state. |
+| Core Binding | Project-scoped source identity, version/hash, locator and relation recorded by Writer. |
+| Qualified Subscription Host | Official host with separately established auth, included-only billing and actual isolation. |
+| Host Task Envelope | Version-bound scoped request, approved context/support allowlist and output constraints. |
+| Host Run Receipt | Observed execution metadata and hashes; not billing attestation or scientific approval. |

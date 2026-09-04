@@ -1,6 +1,7 @@
 # ADR 0003: Require researcher authorization before sentence realization
 
 - Status: Accepted
+- Refined by: [ADR 0008](0008-paper-centered-incremental-commitment.md); approval bundles, paper context and human-edit reconciliation refine the interaction without permitting broad agent prose.
 - Date: 2026-09-03
 - Decision owner: Chenglong Fu
 - RKA decision: `dec_01M1MZZXK74SNS0ZNMHE47QJPB`
