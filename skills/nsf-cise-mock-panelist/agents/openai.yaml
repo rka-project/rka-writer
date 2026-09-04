@@ -1,7 +1,0 @@
-interface:
-  display_name: "NSF CISE Mock Panelist"
-  short_description: "Multi-perspective NSF CISE proposal and writing review"
-  default_prompt: "Use $nsf-cise-mock-panelist to run a rigorous wide-to-deep review of my NSF CISE proposal, applying any author style guide only after a blind cold read."
-
-policy:
-  allow_implicit_invocation: false

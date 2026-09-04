@@ -1,0 +1,50 @@
+name: Design proposal
+description: Propose a change to the RKA Writer product or architecture
+title: "[Design] "
+labels:
+  - design
+body:
+  - type: markdown
+    attributes:
+      value: Explain the researcher problem before proposing implementation.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Researcher problem
+      description: What cannot the researcher do safely or effectively today?
+    validations:
+      required: true
+  - type: textarea
+    id: meaning
+    attributes:
+      label: Consequential meaning
+      description: Which scientific, narrative, or terminology decisions are affected?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Describe the smallest design change that addresses the problem.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives and trade-offs
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Acceptance evidence
+      description: What fixture, prototype, or researcher evaluation would resolve the proposal?
+    validations:
+      required: true
+  - type: input
+    id: milestone
+    attributes:
+      label: Roadmap milestone
+      placeholder: W0, W1, W2, W3, W4, or W5
+    validations:
+      required: true
