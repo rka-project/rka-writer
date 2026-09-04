@@ -1,9 +1,9 @@
 # RKA Writer
 
-RKA Writer is a researcher-controlled research-to-prose compiler and
-convergence workbench. It progressively compiles reviewed research knowledge
-and explicit researcher decisions into a versioned authoring graph. Public
-prose is produced only as a bounded realization of approved sentence intents.
+RKA Writer is a researcher-controlled writing workbench that helps authors
+converge from a research question to a coherent paper. Discussion stays centered
+on the paper; a versioned Authoring Graph preserves the meaning, evidence and
+decisions behind it. Agents realize one approved sentence intent at a time.
 
 > **Status: W0 design phase.** This repository is being re-baselined from the
 > former Writer 0.2 skill distribution. It does not yet contain a supported
@@ -18,10 +18,15 @@ and bounded language realization.
 Writer is built around five invariants:
 
 1. **Question before retrieval; story commitment after evidence review.**
-2. **No prose before semantic admission.**
-3. **One sentence of output, full paragraph awareness.**
+2. **No agent manuscript prose before semantic admission.**
+3. **One sentence of output, paper and paragraph awareness.**
 4. **Concepts early; exact terms locked before realization.**
-5. **Upstream changes invalidate; they never silently regenerate.**
+5. **Upstream changes trigger impact review, never silent rewriting.**
+
+Two additional product boundaries govern execution and language calibration:
+
+6. **Subscription hosts execute; Writer never owns an API billing path.**
+7. **Style is researcher-approved structure, not source-text imitation.**
 
 [RKA Core](https://github.com/rka-project/rka-core) remains authoritative for
 research records, claims, evidence, and provenance. Writer owns how approved
@@ -32,8 +37,8 @@ imports Core internals or opens Core storage directly.
 
 The graph separates research truth, authoring truth, and document truth.
 Researcher decisions govern semantic admission throughout the writing process,
-while upstream changes invalidate dependent authoring state without silently
-rewriting accepted text.
+while upstream changes identify dependencies needing review without silently
+rewriting accepted text. This is a dependency map, not a mandatory linear wizard.
 
 ```mermaid
 flowchart LR
@@ -51,6 +56,7 @@ flowchart LR
         O["Section & Paragraph Outline"]
         PC["Paragraph Contract"]
         SI["Sentence Intents"]
+        S["Author Style Profile<br/>term · prose · tone"]
         T["Term Lock"]
         R["Sentence Realizations"]
     end
@@ -65,18 +71,22 @@ flowchart LR
     L --> Q
     L --> P
     Q --> C --> P --> N --> O --> PC --> SI --> T --> R --> M --> G
+    S --> T
+    S --> R
 
     H["Researcher decisions<br/>select · revise · approve · lock"]
     H -.-> Q
     H -.-> C
     H -.-> P
     H -.-> N
+    H -.-> O
     H -.-> PC
     H -.-> SI
+    H -.-> S
     H -.-> T
     H -.-> R
 
-    X["Upstream version change"] --> I["Impact analysis<br/>mark dependents stale; never auto-rewrite"]
+    X["Upstream version change"] --> I["Impact analysis<br/>block invalid or uncertain dependents; never auto-rewrite"]
     I -.-> C
     I -.-> P
     I -.-> N
@@ -86,6 +96,29 @@ flowchart LR
     I -.-> R
 ```
 
+Model assistance is supplied only by an authenticated Codex or Claude Code
+subscription host. Writer has no provider API key, direct model API, metered
+fallback, or cross-provider model selector.
+
+Authentication alone is not enough: included-only billing and actual host
+context/tool/file isolation must also be established. No adapter is qualified
+by the current design documents.
+
+## What the author experiences
+
+Use argument, structure and writing views of the same paper. Discuss one
+meaningful question; approve an exact displayed bundle of coupled changes;
+review sentence candidates in context. Fine-grained storage does not require
+one approval click per object. Human notes and direct edits are preserved.
+
+Style can start from selected examples or direct preferences, then be calibrated
+on the same admitted meaning. Accepting an edit does not silently teach a global
+rule. Requested whole-paper review is read-only and advisory.
+
+The graph can enforce version and authority boundaries. It cannot prove that
+evidence entails a claim or that a paper reads well. Those require separate
+scientific and author/reader assessment.
+
 ## Start here
 
 | Document | Purpose |
@@ -94,9 +127,17 @@ flowchart LR
 | [Roadmap](ROADMAP.md) | W0-W5 milestones and exit criteria |
 | [Vision](docs/vision.md) | Product problem, user, goals, and non-goals |
 | [Principles](docs/principles.md) | Product invariants and researcher-control rules |
+| [Design refinement](docs/adr/0008-paper-centered-incremental-commitment.md) | Accepted principles versus implementation hypotheses |
 | [RFC 0001](docs/rfcs/0001-authoring-ir-and-convergence-protocol.md) | Proposed Authoring IR and convergence protocol |
+| [RFC 0002](docs/rfcs/0002-subscription-host-and-paper-studio.md) | Proposed subscription-host and Paper Studio interaction |
+| [RFC 0003](docs/rfcs/0003-researcher-owned-style-profile.md) | Proposed researcher-owned term, prose, and tone profile |
 | [Architecture](docs/architecture/authoring-graph.md) | Current consolidated authoring-graph view |
+| [Paper Studio](docs/architecture/paper-studio.md) | Semantic-zoom information architecture |
+| [Subscription runtime](docs/architecture/subscription-host-runtime.md) | Fail-closed host execution boundary |
+| [Style profile](docs/architecture/style-profile.md) | Sample-to-rule language-calibration boundary |
 | [W1 evaluation](docs/evaluation/w1-acceptance-criteria.md) | First vertical-slice acceptance contract |
+| [W0 walkthrough](docs/evaluation/w0-walkthrough.md) | Early author workflow and host-feasibility validation |
+| [W1 fixture](docs/evaluation/w1-fixture-spec.md) | Sanitized end-to-end scenario and expected transitions |
 | [Contributing](CONTRIBUTING.md) | RFC, ADR, issue, and implementation workflow |
 
 ## What is preserved
@@ -113,11 +154,15 @@ flowchart LR
 
 ## Current implementation rule
 
-Do not add a general editor, autonomous drafting agents, broad prose
-generation, or production schemas during W0. First accept the Authoring IR and
-focused ADRs. Then implement only the W1 path from one approved paper question
-to one fully traceable paragraph, including an upstream-change invalidation
-test.
+W0 validates workflow and feasibility before production contracts freeze.
+Run the author walkthrough and bounded host checks, then authorize only the
+minimal W1 path: one paragraph within a paper scaffold, including impact
+review, style calibration, direct-edit reconciliation and recovery.
+
+Do not add a general editor, autonomous drafting agents, broad generation,
+provider API path or production schemas during this design phase. RFCs remain
+Provisional. Repository checks and a merged design PR do not establish user
+benefit, semantic accuracy or host conformance.
 
 ## Repository process
 

@@ -1,36 +1,58 @@
 # Baseline Comparison
 
-The human evaluation eventually compares three conditions using the same
-research material, task, venue, and—where supported—base model settings:
+Formative author evaluation starts in W0. W5 is the broader comparative study,
+not the first time a researcher uses the interaction.
 
-1. a conventional general-LLM writing prompt;
-2. Writer skill 0.2 pinned at `writer-skill-v0.2.0`; and
-3. the RKA Writer workbench.
+## Comparisons
 
-## Measure four dimensions
+Use the same research material, task, venue and available subscription-host
+model/settings where practical:
 
-### Scientific fidelity
+1. a competent document-plus-contextual-chat workflow with the same evidence;
+2. the frozen Writer 0.2 skill at `writer-skill-v0.2.0`;
+3. the proposed Writer workbench.
 
-Unsupported claims, claim-evidence mismatch, citation support errors,
-numerical drift, omitted material counterevidence, and claim broadening.
+Do not give only Writer a curated research packet and attribute the resulting
+advantage entirely to UI or approvals. Record model/host version, context,
+time, usage and interruptions. Balance task/order effects where feasible.
+Keep the Writer condition subscription-included-only; do not silently use APIs
+or paid credits to complete a comparison.
 
-### Convergence
+## Formative questions
 
-Time to stable paper question and claim portfolio, reopened high-level
-decisions, stale downstream artifacts, hidden inconsistency, semantic
-oscillation, and cold-start recovery accuracy.
+Can an author approve a coupled plan without hidden choices? Does paper context
+prevent local duplication and contradictions? Are legitimate pivots supported?
+Can direct edits and interrupted sessions be recovered? Does style calibration
+help more than concise direct preferences?
 
-### Researcher control and effort
+For optional rules-plus-examples, compare against rules-only using the same
+admitted meanings. Assess another intent to test transfer rather than grading
+only the calibration sentence. Do not infer effectiveness from sample count.
 
-Consequential decisions per researcher minute, accept/edit/reject rates,
-researcher edit distance, undo rate, unintended semantic changes, perceived
-cognitive load, and confidence in provenance and control.
+## Outcomes
 
-### Reader-facing quality
+| Dimension | Observe |
+|---|---|
+| Scientific fidelity | Unsupported claims, entailment mismatch, numerical drift, omitted counterevidence and scope broadening |
+| Convergence | Hidden inconsistency, justified versus accidental reopening, recovery accuracy and impact precision |
+| Author control/effort | Consequential decisions per minute, comprehension, redundant approval, edit preservation and perceived burden |
+| Reader quality | Understanding of contribution and limits, coherence, naturalness, needless caveats and blinded author preference |
+| Operational feasibility | Latency, subscription exhaustion, gate failures, isolation observations and unsupported host configurations |
 
-Quick-reader comprehension, contribution visibility, narrative coherence,
-terminology clarity, naturalness, unnecessary caveat rate, and author-style
-match.
+A lock count or low revision count is not convergence. Low effort is not success
+if the author missed a hidden change. Style similarity is not correctness and
+profile compliance is not sufficient evidence of author voice.
 
-Output prose quality is necessary but not sufficient. A fluent condition fails
-if it hides semantic change or weakens researcher control.
+Use evidence-grounded human adjudication for scientific support and report
+uncertainty/assessor disagreement. Automated checks can enforce permissions and
+detect configured patterns; they cannot certify all semantic errors absent.
+Separate seeded-fixture accuracy from real-project performance.
+
+## Reporting discipline
+
+Record negative outcomes and unequal time/context/usage conditions. Do not
+claim significance from a single walkthrough. Set participant/task scope and
+analysis before a formal comparison. PaperMentor and the earlier literature
+audit motivate hypotheses; neither validates this complete Writer workflow.
+
+See [W0 protocol](w0-walkthrough.md) and [W1 criteria](w1-acceptance-criteria.md).

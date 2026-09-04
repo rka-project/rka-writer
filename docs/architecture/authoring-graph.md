@@ -1,36 +1,61 @@
 # Authoring Graph
 
-The Authoring Graph is the canonical structured representation of approved and
-provisional manuscript meaning.
+The graph preserves authoring intent and lineage. It is not a proof of
+scientific truth and is not the default UI. This is a logical view under
+[ADR 0008](../adr/0008-paper-centered-incremental-commitment.md), not a frozen
+database schema.
 
 ```mermaid
 flowchart TD
-    Core["Core binding snapshot"] --> PQ["Paper question version"]
-    PQ --> PC["Publication claim version"]
-    Core --> EU["Evidence use"]
-    PC --> EU
-    PC --> NM["Narrative move"]
-    EU --> NM
-    NM --> Para["Paragraph contract"]
-    Para --> SI["Sentence intent"]
-    Term["Term lock"] --> SI
+    Core["Selected Core snapshots"] --> EU["Evidence uses and warrants"]
+    Q["Paper question"] --> C["Publication claim portfolio"]
+    EU --> C
+    C --> Spine["Narrative and Paper Spine"]
+    Spine --> O["Section outline and paragraph allocation"]
+    O --> PC["Paragraph contract"]
+    PC --> SI["Sentence intent plan"]
     EU --> SI
-    SI --> SR["Sentence realization"]
-    SR --> Source["Manuscript source map"]
+    Q --> Capsule["Version-bound paper context"]
+    C --> Capsule
+    Spine --> Capsule
+    O --> Capsule
+    Capsule --> R["One-intent realization proposal"]
+    SI --> R
+    T["Concept definitions and term locks"] --> R
+    S["Approved scoped style"] --> R
+    R --> Review["Structural checks, semantic review, researcher acceptance"]
+    Review --> Text["Mapped manuscript"]
 ```
 
-Every node is a logical artifact with immutable versions. Every edge points to
-an exact upstream version and names why the dependency exists. Approval,
-rejection, locking, supersession, and retirement are events rather than
-in-place loss of history.
+Evidence and claim candidates can be explored together. The diagram describes
+dependencies of a committed version, not a chronological rule that every
+provisional record must already be finalized.
 
-The graph supports four essential questions for any manuscript sentence:
+## Four granularities
 
-1. Why is this sentence here?
-2. What exact proposition and rhetorical function does it realize?
-3. Which evidence, term decisions, and researcher approvals constrain it?
-4. What becomes stale if an upstream assumption changes?
+Store individual artifacts. Discuss meaningful questions. Approve exact bundles
+of coupled versions. Generate one admitted sentence candidate set at a time.
+No approval is inferred from navigation, silence, chat history or a model's
+report. An approval cannot cover unseen future versions.
 
-Storage representation remains provisional during W0. The logical artifact and
-dependency contracts are independent of whether the first prototype uses files
-or SQLite.
+## Currentness
+
+Edges retain exact upstream version, consumed content/contract, reason and
+effect. A new upstream version creates impact candidates; known-invalid and
+unknown semantic effects block affected production. Preference-only changes
+are non-blocking. Demonstrable non-semantic changes can be classified without
+claiming a model proved semantic equivalence.
+
+Keep historical versions and manuscript bytes unchanged. Revalidation records
+compatibility/approval against a new upstream version instead of silently
+rebinding the old artifact. Conservative review is required when dependency
+granularity cannot establish non-impact. See
+[RFC 0001](../rfcs/0001-authoring-ir-and-convergence-protocol.md).
+
+## Trace and recovery
+
+A sentence explains its question, claim, section/paragraph role, intent,
+selected evidence, terms and author decisions. Background orientation is not
+evidence authorization. Human-edited bytes are preserved and marked for
+reconciliation rather than forced back to graph output. Operational host
+receipts remain separate from scientific and authorial authority.

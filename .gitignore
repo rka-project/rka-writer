@@ -7,3 +7,6 @@ __pycache__/
 build/
 dist/
 *.egg-info/
+
+# Researcher-provided full design source: local-only, never staged.
+/docs/rka-writer-authoring-ir-and-convergence-protocol.md

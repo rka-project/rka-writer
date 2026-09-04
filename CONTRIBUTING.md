@@ -8,8 +8,8 @@ clearer and testable before increasing implementation surface.
 - **RFC** — a substantial proposal that is still open to revision.
 - **ADR** — one accepted architectural decision, its context, alternatives,
   consequences, and supersession links.
-- **Architecture document** — the consolidated current design produced by
-  accepted decisions.
+- **Architecture document** — a concise current view, distinguishing accepted
+  principles from provisional implementation details and observed capabilities.
 - **Roadmap** — durable dependency order and exit criteria.
 - **Issue or pull request** — work currently being discussed or executed.
 - **History** — superseded design that remains useful for provenance.
@@ -37,14 +37,30 @@ clearer and testable before increasing implementation surface.
 
 ## Implementation gate
 
-During W0, implementation is limited to documentation, deterministic fixtures,
-schema experiments, and contract tests that answer an accepted design
-question. Do not add a production editor, model gateway, autonomous agents, or
-broad drafting path.
+During W0, use documentation, supplied-text mockups, design fixtures and
+disposable experiments to answer named questions. Start with the author
+walkthrough and read-only host inspection. Do not add a production editor,
+model gateway, autonomous agents or broad drafting path. Inference-consuming
+probes need established billing/isolation protection and scoped authorization.
 
-The first runtime code must implement the bounded W1 vertical slice and its
-upstream-invalidation test. New features must identify the RFC/ADR and roadmap
-exit criterion they serve.
+No contribution may add provider API credentials, direct model API calls,
+metered fallback, local-model fallback, or a cross-provider model selector
+without a new PI decision that explicitly supersedes ADR 0005.
+
+The first authoring runtime implements only the explicitly authorized W1 slice
+after the entry gate. It includes paper context, impact review, manual-edit
+reconciliation and recovery. New features must name the learning/exit gate they
+serve. Do not treat a merged RFC draft or repository lint as runtime evidence.
+
+## Validation labels
+
+Separate repository integrity, fixture consistency, runtime conformance,
+scientific assessment and author/reader evidence. Tests checking that a sentence
+appears in a Markdown file do not test the behavior it describes. Do not lock
+the number of ADRs or require superseded decisions to remain Accepted.
+
+Never stage the local-only full researcher design source. Its exact path is
+ignored intentionally; use an explicit staging list and inspect the staged diff.
 
 ## Pull request expectations
 

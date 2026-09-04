@@ -5,8 +5,10 @@ ADRs before changing this repository.
 
 - The active product is a researcher-controlled Authoring Graph and convergence
   workbench. It is not the frozen prose-first Writer skill.
-- W0 is a design-freeze phase. Do not add an authoring runtime or UI until the
-  W1 acceptance contract is stable and explicitly approved.
+- W0 validates workflow and feasibility before production contracts freeze.
+  Follow ADR 0008. Design fixtures and disposable, explicitly scoped probes
+  may answer named questions; no production authoring runtime or UI is
+  authorized by a documentation merge. W1 implementation needs its own gate.
 - Do not restore plugin distributions or Reviewer skills to the active root.
 - Treat `legacy/core-import-v1/` as compatibility infrastructure, not as the
   future architecture.
