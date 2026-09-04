@@ -27,6 +27,6 @@ jobs:
           PYTHONDONTWRITEBYTECODE: "1"
       - run: >-
           python -m ruff check
-          rka_writer_staging.py
-          tests/test_staging_import.py
-          tests/test_distribution_boundaries.py
+          legacy/core-import-v1/rka_writer_staging.py
+          legacy/core-import-v1/tests/test_staging_import.py
+          tests/test_design_repository.py
