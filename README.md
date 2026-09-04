@@ -28,6 +28,64 @@ research records, claims, evidence, and provenance. Writer owns how approved
 research meaning is organized and expressed in a manuscript. Writer never
 imports Core internals or opens Core storage directly.
 
+## Architecture at a glance
+
+The graph separates research truth, authoring truth, and document truth.
+Researcher decisions govern semantic admission throughout the writing process,
+while upstream changes invalidate dependent authoring state without silently
+rewriting accepted text.
+
+```mermaid
+flowchart LR
+    subgraph Core["RKA Core · Research Truth"]
+        K["Claims + Scope Versions"]
+        E["Experiments + Observations + Locators"]
+        L["Literature + Decisions + Research Map"]
+    end
+
+    subgraph Writer["RKA Writer · Authoring Truth"]
+        Q["Paper Question / Thesis Kernel"]
+        C["Publication Claim Portfolio"]
+        P["Selected Evidence Uses + Warrants"]
+        N["Narrative Branch / Paper Spine"]
+        O["Section & Paragraph Outline"]
+        PC["Paragraph Contract"]
+        SI["Sentence Intents"]
+        T["Term Lock"]
+        R["Sentence Realizations"]
+    end
+
+    subgraph Files["Document Truth"]
+        M["Accepted LaTeX / Markdown"]
+        G["Git / PDF / Overleaf Sync"]
+    end
+
+    K --> P
+    E --> P
+    L --> Q
+    L --> P
+    Q --> C --> P --> N --> O --> PC --> SI --> T --> R --> M --> G
+
+    H["Researcher decisions<br/>select · revise · approve · lock"]
+    H -.-> Q
+    H -.-> C
+    H -.-> P
+    H -.-> N
+    H -.-> PC
+    H -.-> SI
+    H -.-> T
+    H -.-> R
+
+    X["Upstream version change"] --> I["Impact analysis<br/>mark dependents stale; never auto-rewrite"]
+    I -.-> C
+    I -.-> P
+    I -.-> N
+    I -.-> O
+    I -.-> PC
+    I -.-> SI
+    I -.-> R
+```
+
 ## Start here
 
 | Document | Purpose |
