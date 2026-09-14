@@ -90,6 +90,12 @@ Concept definition, field precedent and technical correctness come first.
 Samples suggest labels, but author habit cannot establish synonym equivalence.
 Approved Term Locks retain definition, allowed variants and first-use policy.
 
+Before locking, compare candidate labels with their definition/scope, source
+precedents and locators, nearest contrasts, examples/counterexamples and
+dependent uses. A new conceptual distinction returns to science/discourse;
+it is not a stylistic synonym. See the proposed
+[term-selection protocol](../design/language-and-revision-protocol.md).
+
 Prose preferences include actor/action placement, information density,
 definition/citation integration, paragraph rhythm and transition style.
 Tone preferences include directness, formality and reader orientation.
@@ -97,6 +103,12 @@ Neither average sentence length nor sample similarity becomes a quota.
 
 Material qualifications and claim strength belong to the scientific contract.
 "May improve" → "improves" is not an ordinary tone adjustment.
+
+Expression review anchors concrete information loss or reader burden in the
+selected span and its contract. "AI-tics" is not an authorship classifier or
+word blacklist: correct repetition, necessary hedges and useful signposting
+must survive. Pair defect cases with legitimate counterexamples and no-change
+outcomes in the [W0 protocol](../evaluation/w0-language-and-convergence-cases.md).
 
 ## Resolving rules
 
@@ -190,3 +202,5 @@ minimum inspection UI. No universal overlap threshold or style score is frozen.
 - 2026-09-04: Revised under ADR 0008: contrastive calibration, consent to
   generalize, polarity/enforcement separation and an optional bounded-example
   experiment. The rules-only path remains the initial implementation target.
+- 2026-09-14: Proposed term-selection and grounded expression-review protocols
+  linked with paired false-alarm/no-change cases; implementation authority unchanged.

@@ -76,6 +76,14 @@ is not a style-learning signal unless the researcher also approves a proposed
 rule and its scope. Preserve keyboard/direct-edit routes; measure approval
 effort in the walkthrough rather than designing a form for every object.
 
+The proposed [language and revision protocol](../design/language-and-revision-protocol.md)
+adds term proposals before locks, grounded expression issues and change reports
+that separate research records from expressed meaning. Keep these in the
+selected paper context, not a second mandatory wizard. A review finding can
+return to argument/structure discussion or pass unchanged; it cannot authorize
+its own patch. Test the [paired cases](../evaluation/w0-language-and-convergence-cases.md)
+before freezing the corresponding controls.
+
 ### Review, impact and trace
 
 Requested full-paper review is permitted as read-only work on a frozen snapshot
@@ -223,3 +231,5 @@ layout and disclosure density. Second-host parity is not a W1 requirement.
 - 2026-09-04: Initial subscription-host/Paper Studio proposal.
 - 2026-09-04: Revised under ADR 0008: paper-centered views, explicit control
   plane, independent billing/isolation gates, review and honest receipts.
+- 2026-09-14: Linked the proposed term/review/repair interactions to the
+  consolidated language protocol; no host or implementation gate changed.

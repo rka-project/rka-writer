@@ -3,6 +3,11 @@
 The profile records the author's endorsed term, prose and tone preferences.
 It is not an imitation prompt and does not supply scientific evidence.
 
+The proposed [language and revision protocol](../design/language-and-revision-protocol.md)
+distinguishes concept/term selection, grounded expression defects and personal
+preferences. It adds task contracts to test, not an installed AI-tic skill or
+permission to auto-apply criticism.
+
 ## Calibration flow
 
 ```mermaid

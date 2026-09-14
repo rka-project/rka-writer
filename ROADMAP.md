@@ -30,6 +30,9 @@ Run two bounded investigations:
   discussion, an exact approval bundle, a paragraph plan, a changed belief,
   style calibration, an external edit and recovery. Static/mock interactions
   use supplied text and no unapproved prose generation.
+  Select a small subset of [language and convergence cases](docs/evaluation/w0-language-and-convergence-cases.md)
+  to test term distinctions, grounded issues, necessary qualifications and
+  justified no-change outcomes. Record false alarms as well as detected defects.
 - **Host feasibility:** begin with read-only official capability inspection;
   separately establish auth, no extra paid usage, actual context/tool/file
   isolation and structured result handling. Do not consume inference merely
@@ -54,6 +57,8 @@ The first slice includes:
 - compact full-paper plus detailed paragraph context;
 - one host that has passed all execution gates;
 - structural checks, semantic review and author acceptance as distinct layers;
+- a reviewable term proposal before lock, anchored expression findings, and
+  a change report distinguishing canonical claims from expressed meaning;
 - one upstream evidence withdrawal and one claim-scope revision;
 - one non-blocking style preference change;
 - a human direct edit, conflict-safe reconciliation and cold-start recovery;
@@ -85,8 +90,10 @@ Choose integration technology from observed workflow needs, not a W0 mockup.
 
 ## W4 — Richer quality and isolated review
 
-Extend the minimum W1 evidence/scope checks with numerical, terminology,
-style-drift, reader-path and optional whole-paper audits. Requested review is
+Extend the minimum W1 evidence/scope, term and expression checks with broader
+numerical, terminology, style-drift, reader-path and optional whole-paper audits.
+Basic language-quality review is part of W1; W4 expands its coverage and
+automation, not its first introduction. Requested review is
 read-only and isolated; findings become selected proposals, never automatic
 edits. Second-host support is optional and must pass the same billing/isolation
 gates. Neither feature is a prerequisite for a useful first release.

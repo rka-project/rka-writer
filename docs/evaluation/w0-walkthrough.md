@@ -4,6 +4,7 @@
 - Purpose: test the interaction before freezing schemas or layout
 - Basis: [ADR 0008](../adr/0008-paper-centered-incremental-commitment.md)
 - Materials: [W1 fixture](w1-fixture-spec.md)
+- Optional paired language cases: [term, review and convergence](w0-language-and-convergence-cases.md)
 
 This is a study/inspection script, not evidence that the proposed workflow
 works. Example responses below are hypothetical, not PI quotations or approvals.

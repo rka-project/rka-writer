@@ -20,6 +20,11 @@ intents → term locks → sentence realizations. It is a dependency structure,
 not a compulsory global wizard. The three loops below can reopen each other
 through explicit, scoped decisions.
 
+The [framework synthesis](../design/writer-framework-synthesis.md) explains
+the author-facing decisions; the proposed
+[language and revision protocol](../design/language-and-revision-protocol.md)
+specifies term proposals, anchored issues and semantic-change accounting.
+
 ## Goals and non-goals
 
 Preserve meaning, provenance, researcher control, full-paper awareness and
@@ -171,6 +176,18 @@ The author accepts, edits-and-accepts, rejects or requests alternatives for one
 intent. Changes to function, scope, evidence or terms reopen the relevant
 contract. Formatting-only changes can use an explicitly bounded policy.
 
+Review findings name a document/version anchor, observed defect, source or
+contract basis, reader consequence and minimal repair scope. Route missing
+support to the scientific commitment, missing reasoning to the discourse plan,
+and same-meaning clarity issues to expression. Pass/no change is valid.
+An issue is advisory until selected; it is not an instruction to rewrite.
+
+A repair report separately tracks canonical claim changes and changes to the
+expressed proposition, including scope, evidence, quantities and concept
+identity. Restoring an omitted approved condition can leave the claim record
+unchanged while materially correcting the sentence. Punctuation or a "style"
+label alone cannot establish that a patch is meaning-preserving.
+
 ## Human editing and recovery
 
 The author may write notes or edit prose directly, including before completing
@@ -225,3 +242,5 @@ A documentation merge is not acceptance evidence for these questions.
 - 2026-09-04: Subscription/style proposals added.
 - 2026-09-04: PI-approved review separates granularities, restores whole-paper
   context, qualifies guarantees and moves human validation/reconciliation early.
+- 2026-09-14: Source-grounded operational refinements added for W0/W1 testing;
+  proposed details remain unvalidated and do not change implementation authority.
