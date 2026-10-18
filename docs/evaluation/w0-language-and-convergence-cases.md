@@ -1,7 +1,8 @@
 # W0 Language and Convergence Cases
 
-- Status: Proposed protocol; not executed or implemented in the clickable mock
+- Status: Proposed human protocol; some supplied-text W0 cases have engineering tests, not human validation
 - Date: 2026-09-14
+- Extended: 2026-10-18 (H1/H2 offline contract regressions)
 - Extends: [W0 walkthrough](w0-walkthrough.md), not a second mandatory wizard
 - Protocol: [language and revision](../design/language-and-revision-protocol.md)
 
@@ -30,9 +31,43 @@ New model prose still requires semantic admission and independent host gates.
 | R1 | Patch restores an omitted approved condition | Claim record unchanged; expressed proposition corrected | Report only "claims changed: none" |
 | R2 | Evidence changes while another branch is parked | Preserve bytes; review dependents, permit unrelated work | Automatic rewrite or global freeze |
 | R3 | Author edits again after a patch preview | Preserve newer bytes; refuse stale patch | Overwrite human work |
+| H1 | A rewrite retains 3,000 but changes an area lower bound to an exact value | Flag the quantitative relation change; no same-meaning acceptance | Digit matching or a style label hides changed scope |
+| H2 | Removing historical narration introduces a hash map and O(1) lookup cost | Flag both unsupported propositions; return to evidence review | Plausible implementation becomes an asserted fact |
 
 Also test preserved numeric digits with a changed metric, unit or comparison.
 Token matching must not be reported as semantic safety.
+
+## H1/H2 executable regression contract
+
+The [source assessment](../research/2026-10-18-humanizer-review.md) pins the two
+Humanizer examples. Their short adapted texts and manually supplied semantic
+atoms live in [review fixtures](../../prototypes/w0/review-fixtures.mjs);
+[probe tests](../../prototypes/w0/review-probe.test.mjs) exercise the read-only
+[contract probe](../../prototypes/w0/review-probe.mjs). Run with:
+
+```sh
+node --test prototypes/w0/review-probe.test.mjs
+```
+
+H1 pairs the bad exact-value rewrite with a safe lower-bound paraphrase and
+unchanged text. H2 pairs the two invented assertions with a paraphrase that
+retains the replacement relation and the old algorithm's cost, while asserting
+nothing about the new mechanism or complexity. Also test the invented mechanism
+and the invented complexity independently; neither can escape by removing the
+other. Removing a supported assertion is a change too.
+
+Both cases require unchanged base text, immutable input snapshots, complete
+supplied annotations and exact before/after bindings. Missing or malformed
+annotations are unassessed; changed text or revision requires a new review.
+Unchanged text and equivalent annotations permit no-change or researcher
+review, not automatic acceptance. The same input must produce the same result.
+
+These tests compare reviewer-supplied meaning representations; they do not
+extract meanings from the sentences. They are not connected to the browser
+reviewer, do not establish Humanizer's failure rate, and do not prove a model
+will detect the defects. A future reviewer must be tested on the text, without
+receiving the expected annotations or verdicts. Record its misses and false
+alarms independently of these deterministic checks.
 
 ## Capture and comparison
 

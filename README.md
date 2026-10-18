@@ -130,16 +130,32 @@ The September 14 synthesis makes three parts of this workflow more concrete:
 | Repair a problem | Name the defect, choose its responsible layer and show what meaning changes | An unchanged research claim does not imply unchanged sentence meaning |
 
 These refinements keep the researcher in the scientific, reader-path and
-expression loops. They are documented hypotheses to test in W0/W1, not installed
-skills or features already supported by the clickable prototype.
+expression loops. A bounded subset now has supplied-text W0 interactions:
+concept review/locking, explicit advisory profiles, a no-change case, and a
+scope-restoring repair with a semantic delta. General language analysis,
+literature-based term selection and style extraction remain unimplemented.
 
 ## Start here
+
+A disposable [W0 clickable prototype](prototypes/w0/README.md) now exercises
+the workflow with explicitly synthetic, supplied text. Run it locally without
+model or Core connections. The English, Console-aligned mock includes scope and
+evidence-use choices, proposed terms, author-customized term/prose/tone profiles,
+and exact-version review/repair exercises. It is not a production UI or evidence of a completed
+researcher walkthrough. Prepare real materials using the
+[case intake](docs/evaluation/w0-case-intake.md).
 
 For the consolidated design, start with the
 [researcher-decision framework](docs/design/writer-framework-synthesis.md).
 The [language and revision protocol](docs/design/language-and-revision-protocol.md)
 details term selection, grounded expression review and change accounting.
-These are proposed operational refinements, not new runtime capabilities.
+These remain proposed production protocols; the mock exercises only explicitly
+documented fixtures, not general semantic or model-backed runtime capabilities.
+
+The [October 18 Humanizer assessment](docs/research/2026-10-18-humanizer-review.md)
+adds grounded review prompts and two offline regression families: quantitative
+bound loss and invented implementation/complexity. These are annotated W0
+contract checks, not an installed humanizing skill or a semantic detector.
 
 | Document | Purpose |
 |---|---|

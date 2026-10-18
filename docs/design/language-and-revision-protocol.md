@@ -2,6 +2,7 @@
 
 - Status: Proposed operational detail under ADR 0008 and RFCs 0001–0003
 - Date: 2026-09-14
+- Review-pattern refinement: 2026-10-18 (Humanizer source review; no runtime qualification)
 - Parent: [Writer framework](writer-framework-synthesis.md)
 - Evidence basis: [observation ledger](../research/2026-09-14-writing-workflow-observations.md)
 
@@ -94,6 +95,39 @@ empirical fact disappears. Signposting, definitions and logical connections
 can be valuable without reporting new results. Sentence-length and vocabulary-
 diversity statistics are observations, not universal quality targets.
 
+### Source-informed review patterns
+
+The [Humanizer assessment](../research/2026-10-18-humanizer-review.md) supplies
+candidate checks, not an installed skill, authorship detector or mandatory
+rewrite pass. Use the following operational interpretations in the existing
+audit. A pattern match alone is not an issue; show its effect on this reader
+and the relevant intent, evidence or endorsed preference.
+
+| ID | Inspect | Raise an issue when | Preserve / counterexample | Responsible layer |
+|---|---|---|---|---|
+| E1 | Inflated importance and vague authority | The sentence implies significance or support absent from the selected evidence | A bounded contribution or attributed, supported interpretation | Science if unsupported; expression for dispensable dressing |
+| E2 | Staged openings, contrasts and closing lessons | The move adds neither a useful distinction nor orientation and repeats an established point | Real contrasts, necessary signposting and a consequence the reader still needs | Discourse; expression only if the intent stays fixed |
+| E3 | Mechanical parallelism and repeated openings | Repetition obscures distinct relationships or creates needless reading work | Three genuine findings, deliberate parallel comparisons and repeated canonical terms | Expression or advisory preference |
+| E4 | Hidden actors and vague relationships | The reader cannot identify who acts on what, or what relation the evidence supports | Useful passive voice and association wording when causality is unestablished | Science if the relationship is unknown; expression otherwise |
+| E5 | Stacked qualifiers | Redundant wording can be removed without changing uncertainty, scope or attribution | Necessary may/only/under-condition statements, negative results and limits | Scope review before expression |
+| E6 | Chat residue and decorative formatting | A wrapper or label interferes with the document's actual purpose | Quotations, required headings, definitions, ranges, mathematical notation and meaningful typography | Expression, subject to protected spans and venue rules |
+| E7 | Reader mismatch | The passage repeats already-established context or assumes knowledge the intended reader lacks | Explanations needed in this section, even if familiar to the author | Discourse / reader contract |
+
+Record the pattern ID as provenance, not as the justification. A selected
+finding still needs the exact span, contract/source basis, reader consequence,
+uncertainty, protected meaning and smallest responsible repair scope above.
+Distinguish a supported defect from an author preference and an unassessed
+passage. Permit no change, defer, reject and local author edit. Do not rank
+authors or passages by an "AI score" or require a minimum number of findings.
+
+Do not import word bans, punctuation bans, sentence-length quotas or automatic
+paragraph restructuring. Read-only context can include neighboring paragraphs;
+editing remains limited to the selected admitted intent. If a split, merge or
+different paragraph function is needed, reopen the discourse plan and mapping.
+An author's sample can inform a scoped preference, but cannot override facts,
+Term Locks, quantitative relations or required disclosures. See RFC 0003 for
+separate consent to generalize a local choice.
+
 ## 3. Route findings to the smallest responsible layer
 
 | Finding | Route | Do not do |
@@ -158,6 +192,19 @@ proposal. "Claims changed: none" alone is insufficient.
 Matching numeric tokens is not enough: a preserved number can acquire the
 wrong metric, unit or denominator. Deterministic checks cover declared literals
 and references; numerical interpretation remains an evidence-grounded check.
+
+Preserve quantitative operators as well: a strict lower bound is not an exact
+value, an upper bound is not an observed mean, and approximation is not equality.
+Compare mechanism and complexity assertions separately. Removing version
+narration must not introduce a data structure, an algorithm, an O(1) claim or
+a guarantee not present in the selected evidence. Unknown is not permission to
+fill in a plausible implementation. Route these changes to science/evidence
+review; neither fluent wording nor an author's style preference supplies proof.
+
+The H1/H2 [regressions](../evaluation/w0-language-and-convergence-cases.md)
+rehearse these boundaries with supplied semantic annotations. They do not
+extract or validate those annotations from free text. A future model-backed
+review must be evaluated separately against these cases and legitimate controls.
 
 ## 6. Stop, reopen or escalate
 

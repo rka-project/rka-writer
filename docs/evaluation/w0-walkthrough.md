@@ -4,7 +4,12 @@
 - Purpose: test the interaction before freezing schemas or layout
 - Basis: [ADR 0008](../adr/0008-paper-centered-incremental-commitment.md)
 - Materials: [W1 fixture](w1-fixture-spec.md)
+- Local exercise: [clickable W0 mock](../../prototypes/w0/README.md)
+- Real-case preparation: [researcher intake](w0-case-intake.md)
 - Optional paired language cases: [term, review and convergence](w0-language-and-convergence-cases.md)
+
+The clickable mock uses synthetic material and has engineering checks. It does
+not supply researcher observations or change this protocol's not-executed status.
 
 This is a study/inspection script, not evidence that the proposed workflow
 works. Example responses below are hypothetical, not PI quotations or approvals.
@@ -32,9 +37,9 @@ Observation capture must be consented; do not record unrelated research data.
 | 2. Challenge | Compare a tempting broad claim with the bounded alternative and counterevidence | Does the workflow allow narrowing/parking without prose? |
 | 3. Allocate | Locate the target paragraph in the whole-paper outline | Can they explain what belongs elsewhere? |
 | 4. Discuss | Explain how this paragraph should move the reader | Is natural language enough to express intent? |
-| 5. Commit | Review purpose, evidence and sentence-function plan together | Does the exact bundle make omissions and impact visible? |
+| 5. Commit | Review proposed concept definitions and contrasts, then purpose, evidence uses/warrants and sentence functions | Are the terminology and plan reviews understandable or redundant? Does the exact bundle expose omissions? |
 | 6. Realize | Inspect supplied candidates for one admitted intent in context | Can they detect scope changes and choose expression independently? |
-| 7. Calibrate | Pick/edit a same-meaning variant; decline a proposed global rule | Is local acceptance kept separate from learning? |
+| 7. Calibrate | Pick/edit a same-meaning variant; customize the advisory term/prose/tone template, optionally citing a chosen passage; decline broader adoption | Are sample choice, author interpretation, and explicit profile scope kept separate from sentence acceptance? |
 | 8. Reconsider | Withdraw evidence e3 and show the impact list | Is si-01 correctly included for review? Can the author choose a revision? |
 | 9. Edit | Change a mapped sentence directly; introduce a second edit before acceptance | Are bytes preserved and stale patches refused? |
 | 10. Resume | Close the mock session; resume from stored state, not chat | Can the author recover branch, edits and unresolved decisions? |
@@ -44,6 +49,17 @@ Include a metadata-only change, advisory style change and unrelated parked
 branch to check whether impact warnings are understandable rather than noisy.
 Repeat the target task after removing redundant approval steps; compare effort
 and comprehension, not merely click count.
+
+### Bounded language/revision follow-up
+
+In the September 15 mock, exercise a supplied valid sentence (**Keep this
+wording**), the missing-scope-qualifier case (one-sentence repair, then mapping
+review), and the unsupported-safety case (return upstream, no polish patch).
+Ask the author why an unchanged research claim can coexist with a changed
+expressed proposition. Confirm that arbitrary text is reported **Not assessed**,
+not passed. Try excluding a required evidence use and proposing a different
+question; neither should silently produce new prose. Record the friction of
+these controls, not just whether deterministic guards work.
 
 ## Example interaction to inspect
 

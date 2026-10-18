@@ -110,6 +110,14 @@ word blacklist: correct repetition, necessary hedges and useful signposting
 must survive. Pair defect cases with legitimate counterexamples and no-change
 outcomes in the [W0 protocol](../evaluation/w0-language-and-convergence-cases.md).
 
+The [Humanizer-derived catalog](../design/language-and-revision-protocol.md)
+adds source-attributed inspection prompts with legitimate counterexamples.
+It does not install Humanizer or make its lexical/typographic preferences
+mandatory. A matched pattern needs an anchored reader consequence and contract
+basis. Numeric comparators, implementation assertions and complexity bounds
+are protected meaning, not tone. H1/H2 regressions exercise annotated contract
+behavior; they do not qualify a semantic reviewer.
+
 ## Resolving rules
 
 Scientific meaning and applicable venue/disclosure requirements must both be
@@ -204,3 +212,5 @@ minimum inspection UI. No universal overlap threshold or style score is frozen.
   experiment. The rules-only path remains the initial implementation target.
 - 2026-09-14: Proposed term-selection and grounded expression-review protocols
   linked with paired false-alarm/no-change cases; implementation authority unchanged.
+- 2026-10-18: PI-authorized Humanizer adaptation and H1/H2 regression references;
+  researcher approval, semantic review and production gates remain unchanged.
