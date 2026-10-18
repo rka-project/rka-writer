@@ -10,3 +10,6 @@ dist/
 
 # Researcher-provided full design source: local-only, never staged.
 /docs/rka-writer-authoring-ir-and-convergence-protocol.md
+
+# Real-case intake and researcher walkthrough records are private by default.
+/docs/evaluation/private/

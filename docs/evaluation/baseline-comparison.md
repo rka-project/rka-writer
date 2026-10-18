@@ -48,6 +48,13 @@ uncertainty/assessor disagreement. Automated checks can enforce permissions and
 detect configured patterns; they cannot certify all semantic errors absent.
 Separate seeded-fixture accuracy from real-project performance.
 
+For grounded expression review, include harmless technical repetition, necessary
+hedges and useful signposting alongside actual defects. Count false alarms and
+correct no-change decisions, not only edits accepted. Distinguish correction of
+expressed scope from a change to the underlying approved claim. The
+[paired cases](w0-language-and-convergence-cases.md) specify minimum formative
+tests; they are not measured detector performance.
+
 ## Reporting discipline
 
 Record negative outcomes and unequal time/context/usage conditions. Do not

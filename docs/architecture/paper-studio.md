@@ -35,6 +35,29 @@ Requested full-paper review is read-only and isolated. Selected anchored
 findings can enter the decision queue without automatically editing text.
 Direct human edits are preserved and reconciled with the graph.
 
+## Proposed term and expression interactions
+
+Keep these interactions attached to the selected concept, paragraph or sentence
+rather than introducing a required standalone Style Lab:
+
+- **Term selection:** show the meaningful contrast between candidate labels,
+  with definitions, source examples and affected uses. Let the researcher
+  select, revise or defer before a Term Lock.
+- **Expression issue:** highlight the passage and explain the concrete reader
+  consequence against its intent/evidence/term contract. Offer discussion,
+  dismissal or a selected bounded repair; do not apply criticism automatically.
+- **Repair preview:** distinguish unchanged research records from corrected
+  expressed meaning, show protected scope and require current base versions.
+  Preserve no-change outcomes and the author's newer direct edits.
+
+Conceptual and evidential problems lead back to argument/structure discussion.
+Personal preferences can remain local; accepting a repair does not approve a
+global style rule. These are proposed interactions, not capabilities already
+present in the supplied-text mock. The
+[language protocol](../design/language-and-revision-protocol.md) defines their
+logical contracts; the [paired cases](../evaluation/w0-language-and-convergence-cases.md)
+test comprehension, false alarms and effort before UI commitments are frozen.
+
 Validate this interaction with the
 [walkthrough](../evaluation/w0-walkthrough.md) before choosing a UI framework or
 freezing layout. The detailed proposal is

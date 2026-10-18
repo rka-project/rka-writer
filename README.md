@@ -119,7 +119,43 @@ The graph can enforce version and authority boundaries. It cannot prove that
 evidence entails a claim or that a paper reads well. Those require separate
 scientific and author/reader assessment.
 
+### Current design refinement
+
+The September 14 synthesis makes three parts of this workflow more concrete:
+
+| Decision | Proposed interaction | Boundary |
+|---|---|---|
+| Select a term | Compare concept definitions, field usage, contrasts and examples before locking a label | A conceptual change returns to claim/evidence discussion |
+| Review expression | Point to the exact passage, its contract and the reader's difficulty | No AI-word blacklist; necessary hedges and valid repetition may need no change |
+| Repair a problem | Name the defect, choose its responsible layer and show what meaning changes | An unchanged research claim does not imply unchanged sentence meaning |
+
+These refinements keep the researcher in the scientific, reader-path and
+expression loops. A bounded subset now has supplied-text W0 interactions:
+concept review/locking, explicit advisory profiles, a no-change case, and a
+scope-restoring repair with a semantic delta. General language analysis,
+literature-based term selection and style extraction remain unimplemented.
+
 ## Start here
+
+A disposable [W0 clickable prototype](prototypes/w0/README.md) now exercises
+the workflow with explicitly synthetic, supplied text. Run it locally without
+model or Core connections. The English, Console-aligned mock includes scope and
+evidence-use choices, proposed terms, author-customized term/prose/tone profiles,
+and exact-version review/repair exercises. It is not a production UI or evidence of a completed
+researcher walkthrough. Prepare real materials using the
+[case intake](docs/evaluation/w0-case-intake.md).
+
+For the consolidated design, start with the
+[researcher-decision framework](docs/design/writer-framework-synthesis.md).
+The [language and revision protocol](docs/design/language-and-revision-protocol.md)
+details term selection, grounded expression review and change accounting.
+These remain proposed production protocols; the mock exercises only explicitly
+documented fixtures, not general semantic or model-backed runtime capabilities.
+
+The [October 18 Humanizer assessment](docs/research/2026-10-18-humanizer-review.md)
+adds grounded review prompts and two offline regression families: quantitative
+bound loss and invented implementation/complexity. These are annotated W0
+contract checks, not an installed humanizing skill or a semantic detector.
 
 | Document | Purpose |
 |---|---|
@@ -132,6 +168,9 @@ scientific and author/reader assessment.
 | [RFC 0002](docs/rfcs/0002-subscription-host-and-paper-studio.md) | Proposed subscription-host and Paper Studio interaction |
 | [RFC 0003](docs/rfcs/0003-researcher-owned-style-profile.md) | Proposed researcher-owned term, prose, and tone profile |
 | [Architecture](docs/architecture/authoring-graph.md) | Current consolidated authoring-graph view |
+| [Framework synthesis](docs/design/writer-framework-synthesis.md) | Scientific, reader-path and expression decisions; minimum validation |
+| [Source observations](docs/research/2026-09-14-writing-workflow-observations.md) | Report evidence, corrected interpretation and unvalidated hypotheses |
+| [RKA record index](docs/research/writer-rka-index.md) | Current authority, synthesis records and preserved history |
 | [Paper Studio](docs/architecture/paper-studio.md) | Semantic-zoom information architecture |
 | [Subscription runtime](docs/architecture/subscription-host-runtime.md) | Fail-closed host execution boundary |
 | [Style profile](docs/architecture/style-profile.md) | Sample-to-rule language-calibration boundary |

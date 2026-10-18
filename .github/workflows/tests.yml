@@ -9,6 +9,16 @@ permissions:
   contents: read
 
 jobs:
+  w0-prototype:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node --check prototypes/w0/studio.mjs
+      - run: node --test prototypes/w0/*.test.mjs
+
   test:
     runs-on: ubuntu-latest
     strategy:

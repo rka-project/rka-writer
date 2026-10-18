@@ -21,6 +21,10 @@ A design PR merge or fake-host test is not entry evidence.
 - Minimal scoped style and required terms; one same-intent comparison and a
   declined generalization.
 - One-intent candidate sets, separate acceptance and mapped document bytes.
+- A term distinction before lock, grounded expression review with a legitimate
+  no-change/qualification case, and a scope-restoring patch whose report
+  separates unchanged canonical claims from corrected expressed meaning.
+  Select cases from the [language protocol](w0-language-and-convergence-cases.md).
 - Evidence withdrawal, claim revision, metadata change and advisory style
   change, each with explicit impact expectations.
 - Human direct editing, stale-patch refusal, duplicate result handling and

@@ -5,6 +5,10 @@ scientific truth and is not the default UI. This is a logical view under
 [ADR 0008](../adr/0008-paper-centered-incremental-commitment.md), not a frozen
 database schema.
 
+The [framework synthesis](../design/writer-framework-synthesis.md) explains
+the connected scientific, reader-path and expression loops. The graph below
+shows their dependencies; it does not require a global sequence of forms.
+
 ```mermaid
 flowchart TD
     Core["Selected Core snapshots"] --> EU["Evidence uses and warrants"]
@@ -21,7 +25,9 @@ flowchart TD
     O --> Capsule
     Capsule --> R["One-intent realization proposal"]
     SI --> R
-    T["Concept definitions and term locks"] --> R
+    Concepts["Concept definitions and candidate labels"] --> TP["Reviewable term proposal"]
+    TP --> T["Researcher-approved term locks"]
+    T --> R
     S["Approved scoped style"] --> R
     R --> Review["Structural checks, semantic review, researcher acceptance"]
     Review --> Text["Mapped manuscript"]
@@ -37,6 +43,24 @@ Store individual artifacts. Discuss meaningful questions. Approve exact bundles
 of coupled versions. Generate one admitted sentence candidate set at a time.
 No approval is inferred from navigation, silence, chat history or a model's
 report. An approval cannot cover unseen future versions.
+
+## Proposed language and review records
+
+A term proposal exposes the concept, scope, source-bound precedents, contrasts
+and examples before the researcher chooses a label. A changed concept returns
+to scientific/discourse review; a lexical preference cannot silently change it.
+
+An anchored review issue records the selected document revision/span, observed
+defect, source or contract basis, reader consequence, uncertainty and minimum
+repair scope. It may route to scientific meaning, the reader plan, terminology
+or same-meaning expression. An issue is not an approved patch; pass/no change
+is a valid result.
+
+A selected repair records canonical claim changes separately from changes to
+expressed scope, evidence use, quantitative meaning and concept identity.
+These elaborate existing logical records, not new production tables. See the
+[language and revision protocol](../design/language-and-revision-protocol.md)
+for proposed fields and paired validation cases.
 
 ## Currentness
 
