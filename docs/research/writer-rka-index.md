@@ -1,6 +1,6 @@
 # Writer Design: RKA Record Index
 
-- Design reviewed: 2026-10-18; earlier September design and W0 implementation records preserved
+- Design reviewed: 2026-10-19; earlier September/October records preserved
 - Local project: `rka_development` / `prj_01KKQM9JFG67GT5FGWTAHD9YE4`
 - Pinned RKA entry: `jrn_01M2GP92G7QG3BFJXW5F75TC1C`
 - Purpose: navigation and provenance, not an implementation or efficacy claim
@@ -139,3 +139,26 @@ model, alter the browser UI or qualify production behavior. A regression also
 demonstrates the limit when an annotation itself misrepresents the text.
 New records were read back for content, attribution and decision links; original
 creation receipts were checked. Unrelated project maintenance was left alone.
+
+## October 19: Review practice UI and Workbench design review
+
+PI scope `jrn_01M58AM4YFGGKJNZFEE4R0HQSA` authorizes the English, Console-aligned
+H1/H2 review/revise/confirm interface and a fresh design review. Implementation
+and observations: `jrn_01M5A20Y9SDC4W996HYNBS3BMR`; detailed
+[review](../evaluation/2026-10-19-workbench-review.md).
+
+The underlying PR 7 is merged at `fba50e9482a8d2ca6078b75cd2dfbea64163a703`;
+publication result `jrn_01M581JRZ18KKC7D8KVBJK4EQY` records that separate phase.
+The UI follow-up was initially local on `codex/w0-review-workbench`. Subsequent
+PI authorization `jrn_01M5B02KQ060TKD98XWJQPBWC3` permits commit/push, a PR and
+merge after checks pass; it does not change the W0 or runtime gates.
+It connects exact supplied strings to the prior annotation probe and stores
+practice decisions separately from paper state. Custom prose stays unassessed.
+
+124 Node and 37 Python checks pass; bounded browser checks cover H1/H2,
+staleness, reload, paper isolation, keyboard confirmation and light/dark layouts
+at effective390/768/1280px. These are agent-operated engineering observations,
+not a researcher study, arbitrary-text analysis, production runtime or W0 exit.
+Initial preview/browser-test failures and remaining design limitations are
+retained in the review. Author comprehension and one real paragraph are the
+next learning priorities; accepted architectural boundaries are unchanged.

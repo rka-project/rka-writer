@@ -62,7 +62,46 @@ settings. Separate origins do not automatically synchronize their theme choice.
 6. Leave a note or sentence draft unsubmitted and refresh. Stored context,
    approvals, drafts, impact and an outstanding mapping preview should resume.
 
-### Language and revision exercises
+## Language and revision exercises
+
+### Review practice: H1 / H2
+
+Choose **Review practice** in the sidebar, or open
+`http://127.0.0.1:8766/#review-practice`. This is a separate workspace inside
+the same English, Console-aligned shell, not another paper section.
+
+1. Select **H1 · Quantity boundary** or **H2 · Unsupported mechanism**.
+   Compare the source statement, protected meaning and deliberately flawed draft.
+2. Choose **Inspect supplied finding**. H1 identifies a lost lower bound;
+   H2 identifies unsupported mechanism and complexity assertions separately.
+3. Choose **Use this supplied revision** or **Use source wording**. You can edit
+   the working draft yourself; new wording remains **Not assessed**, is preserved,
+   and cannot be confirmed as reviewed by this fixture.
+4. Choose **Preview this revision**. Inspect before/after text, the semantic
+   change, exact draft/source versions and the explicitly excluded paper state.
+5. Choose **Confirm this revision** (or **Confirm no change**). Confirmation
+   records one local practice version. A later edit invalidates an old preview.
+
+**Request evidence review**, **Defer this case** and **Reject this draft** retain
+the draft and previous versions. The evidence route shows the missing question;
+it does not submit a Core mission or claim that new support exists. **Resume
+review** reopens a completed or parked case. E1–E7 rules and practice history
+are inspectable below the working area. **Return to paper** restores the paper
+view without moving exercise text into it.
+
+Practice uses `rka-writer:w0:review-practice:v1`, independent of paper and theme
+storage. **Export review record** exports practice data only. Unknown archives
+remain untouched; storage conflicts pause saving and confirmation. Unsaved
+drafts remain exportable. Like the paper mock, this is not encrypted storage or
+transactional collaboration. Do not enter private research material.
+
+The interface matches exact supplied strings to the authored annotations in
+`review-fixtures.mjs`, then calls the browser-compatible `review-probe.mjs`.
+This is not natural-language analysis, an AI detector or a general reviewer.
+The [October 19 design review](../../docs/evaluation/2026-10-19-workbench-review.md)
+separates engineering observations from remaining user-validation questions.
+
+### Existing paper exercises
 
 - **Customize term / prose / tone** opens an editable, authored starter template.
   Optionally supply a passage, its source/locator and what you value about it.
@@ -185,7 +224,7 @@ The state tests use built-in Node modules only. Browser interaction observations
 belong in the [prototype verification record](../../docs/evaluation/w0-prototype-verification.md).
 Passing them does not mark W0 complete or authorize W1.
 
-### Offline expression-review contract probe
+### Expression-review contract probe
 
 `review-probe.mjs`, `review-fixtures.mjs` and `review-probe.test.mjs` add the
 H1/H2 [Humanizer-derived regressions](../../docs/evaluation/w0-language-and-convergence-cases.md).
@@ -193,9 +232,16 @@ These run under the same Node test command above, without models or dependencies
 The probe compares manually reviewed semantic atoms bound to exact text and
 revision snapshots. It exercises lower-bound loss, invented implementation and
 complexity, legitimate equivalents, no-change, unknown and stale outcomes.
-It never accepts or writes text and is not connected to the browser mock.
+The probe itself never accepts or writes text. The separate review-practice
+controller now uses it for exact supplied cases, and records a local practice
+choice only after an explicit, current preview confirmation. It has no access
+to paper-state writes or Core. Earlier offline-only checks remain intact.
 
 This is an executable design contract, not a general semantic detector. The
 tests explicitly demonstrate that an incorrect annotation can hide a prose
 defect. They do not establish the quality of a model's annotations or prove
 full semantic preservation. No production schema is adopted.
+
+`review-practice.test.mjs` checks the interaction and separate persistence, in
+addition to the probe's annotation checks. Existing paper archives require no
+migration for this addition and are not reset.

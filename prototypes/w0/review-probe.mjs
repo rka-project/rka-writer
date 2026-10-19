@@ -1,7 +1,16 @@
 // Disposable W0 contract probe. Not a semantic extractor or acceptance authority.
 // The caller supplies independently reviewed atoms bound to exact text snapshots.
 // A model's self-declared "reviewed" value is NOT sufficient in a real integration.
-import { isDeepStrictEqual } from 'node:util';
+// JSON-compatible fixture values only; usable in Node and the browser.
+export function equalReviewValue(left, right) {
+  if (Object.is(left, right)) return true;
+  if (!left || !right || typeof left !== 'object' || typeof right !== 'object'
+    || Array.isArray(left) !== Array.isArray(right)) return false;
+  const keys = Object.keys(left);
+  return keys.length === Object.keys(right).length
+    && keys.every(key => Object.hasOwn(right, key) && equalReviewValue(left[key], right[key]));
+}
+const isDeepStrictEqual = equalReviewValue;
 
 const object = value => value !== null && typeof value === 'object' && !Array.isArray(value);
 const nonempty = value => typeof value === 'string' && value.trim().length > 0;

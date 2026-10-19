@@ -3,7 +3,7 @@
 - Phase: W0 — Workflow and feasibility learning
 - Product status: design; no supported authoring runtime
 - Decision owner: Chenglong Fu
-- Last reviewed: 2026-10-18 (review-design refinement and offline contract tests; no runtime qualification)
+- Last reviewed: 2026-10-19 (review-practice UI and design review; no runtime qualification)
 - Governing RKA decision: `dec_01M1MZZXK74SNS0ZNMHE47QJPB`
 - Runtime boundary: `dec_01M1PKYTMA70XG0EVZPD7QSM2S`
 - Current UI direction: `dec_01M1PY0THCZN1V9Y3VEF9W02M7` (supersedes UI-1)
@@ -38,8 +38,11 @@ The [October 18 refinement](docs/research/2026-10-18-humanizer-review.md) adapts
 Humanizer patterns into grounded expression review and adds H1/H2 offline
 regressions under PI scope `jrn_01M580RKGCSMZW2K528QT4PHW7`. No external skill is
 installed. The deterministic probe consumes manually supplied semantic atoms;
-it does not assess arbitrary prose or alter the browser mock. Production and
-human-validation gates remain open.
+it does not assess arbitrary prose. The October 19 follow-up connects exact
+supplied cases to a separate **Review practice** area under PI scope
+`jrn_01M58AM4YFGGKJNZFEE4R0HQSA`. It does not write paper state. The
+[design review](docs/evaluation/2026-10-19-workbench-review.md) records observed
+interactions and remaining limits. Production and human-validation gates remain open.
 
 ## Evidence and open gates
 
@@ -54,7 +57,7 @@ human-validation gates remain open.
 | Claude host | Policy source identified | Not qualified; not required for W1 |
 | Style calibration | Supplied same-intent candidates and explicit customizable advisory profiles; optional author-supplied sample/interpretation | No extraction or automatic learning; benefit and burden unmeasured |
 | Language and convergence protocol | Bounded term-lock, no-change, qualifier-repair and upstream-routing fixtures implemented and engineering-checked | General protocol and researcher outcomes remain unvalidated |
-| Humanizer review adaptation | E1–E7 inspection prompts; H1/H2 annotated contract regressions with safe/no-change, unknown and stale controls | No model semantic detection or human preference result |
+| Humanizer review adaptation | E1–E7 prompts; H1/H2 supplied review/revise/confirm exercises, separate history/storage and annotated contract checks | No arbitrary-text analysis, model semantic detection or human preference result |
 | Structural repository checks | Testable links/ADR lifecycle/legacy integrity | Not semantic or usability evidence |
 
 ## Next bounded work
@@ -67,6 +70,8 @@ human-validation gates remain open.
    Include a manageable subset of the
    [language and convergence cases](docs/evaluation/w0-language-and-convergence-cases.md),
    especially valid no-change outcomes and scope-restoring repairs.
+   The separate **Review practice** entry is available now for H1/H2. Its local
+   confirmations do not count as a completed researcher evaluation.
 2. Inspect an installed host read-only. Record unknown billing/isolation
    properties separately; do not run inference to discover whether it bills.
 3. Revise the minimal contracts from those observations.

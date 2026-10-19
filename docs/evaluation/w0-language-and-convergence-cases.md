@@ -3,6 +3,7 @@
 - Status: Proposed human protocol; some supplied-text W0 cases have engineering tests, not human validation
 - Date: 2026-09-14
 - Extended: 2026-10-18 (H1/H2 offline contract regressions)
+- UI follow-up: 2026-10-19 (separate supplied-text Review practice, not a general reviewer)
 - Extends: [W0 walkthrough](w0-walkthrough.md), not a second mandatory wizard
 - Protocol: [language and revision](../design/language-and-revision-protocol.md)
 
@@ -63,11 +64,29 @@ Unchanged text and equivalent annotations permit no-change or researcher
 review, not automatic acceptance. The same input must produce the same result.
 
 These tests compare reviewer-supplied meaning representations; they do not
-extract meanings from the sentences. They are not connected to the browser
-reviewer, do not establish Humanizer's failure rate, and do not prove a model
+extract meanings from the sentences. The Review practice UI now maps exact
+supplied strings to those authored annotations; custom wording stays unassessed.
+Neither path establishes Humanizer's failure rate or proves a model
 will detect the defects. A future reviewer must be tested on the text, without
 receiving the expected annotations or verdicts. Record its misses and false
 alarms independently of these deterministic checks.
+
+## Interactive H1/H2 walkthrough
+
+Use **Review practice** in the [local Workbench](../../prototypes/w0/README.md).
+Inspect the selected case, compare a supplied revision or preserve a custom
+draft, preview the exact change and confirm a local practice version. Test
+defer/reject/evidence-review routes and confirm that they preserve bytes.
+After a preview, edit the draft again: the prior confirmation must expire.
+Switch cases, return to the paper and reload: paper notes and practice history
+must remain separate and recoverable. Explain the distinction between correcting
+what a sentence asserts and changing the underlying evidence record.
+
+The [engineering/design review](2026-10-19-workbench-review.md) documents
+agent-operated checks. Invite the researcher to explain the quantitative bound,
+identify the two missing implementation assertions, and distinguish saved,
+unassessed and confirmed-in-practice states. Do not infer comprehension from
+clicking Confirm, or turn a practice event into canonical PI approval.
 
 ## Capture and comparison
 
