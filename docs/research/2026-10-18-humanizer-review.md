@@ -77,7 +77,10 @@ The probe compares manually supplied semantic atoms bound to exact before/after
 text snapshots. It exercises routing of changed, added, missing, unknown and
 stale annotations. Safe controls remain proposals for researcher review; they
 never become accepted text. It performs no natural-language parsing, inference,
-MCP calls or manuscript writes and is not wired into the browser mock.
+MCP calls or manuscript writes. At the original October 18 handoff it was
+offline-only. The [October 19 follow-up](../evaluation/2026-10-19-workbench-review.md)
+connects exact supplied strings to these annotations in a separate practice UI;
+the probe still has no acceptance authority or general text-understanding ability.
 
 Passing these tests demonstrates only the declared contract behavior over these
 annotations. A model could miss a fact while producing plausible annotations;

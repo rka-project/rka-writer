@@ -156,6 +156,11 @@ The [October 18 Humanizer assessment](docs/research/2026-10-18-humanizer-review.
 adds grounded review prompts and two offline regression families: quantitative
 bound loss and invented implementation/complexity. These are annotated W0
 contract checks, not an installed humanizing skill or a semantic detector.
+The [Review practice walkthrough](prototypes/w0/README.md#review-practice-h1--h2)
+now exposes these supplied cases in the same English Console-aligned Workbench:
+inspect, revise, preview and confirm one local practice version. Exercises and
+their storage remain separate from the paper. See the
+[Workbench design review](docs/evaluation/2026-10-19-workbench-review.md).
 
 | Document | Purpose |
 |---|---|

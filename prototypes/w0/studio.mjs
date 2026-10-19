@@ -8,6 +8,8 @@ import { STORAGE_KEY, PREVIOUS_STORAGE_KEY, LEGACY_STORAGE_KEY, createState, pla
 import { termBundle, termToken, lockTerms, toggleEvidence, approveProfile, reviewExamples, styleFields } from './workflow.mjs';
 import { questionControls, evidenceControls, terminologyPanel, styleContent, reviewPanel, reviewContent } from './workflow-view.mjs';
 import { esc, button } from './html.mjs';
+import { REVIEW_KEY, createPracticeStore } from './review-practice.mjs';
+import { mountPractice } from './review-practice-view.mjs';
 
 const app = document.querySelector('#app');
 const modal = document.querySelector('#modal');
@@ -24,6 +26,11 @@ let toastTimer;
 let resumed = false;
 let legacyStored = null;
 let sourceStorageKey = null;
+let reviewMode = window.location.hash === '#review-practice';
+const practiceStore = createPracticeStore({
+  getItem: key => localStorage.getItem(key),
+  setItem: (key,value) => localStorage.setItem(key,value),
+});
 const theme = createThemeController({
   root: document.documentElement,
   // Defer access so a denied localStorage getter also has a graceful fallback.
@@ -79,6 +86,16 @@ window.addEventListener('storage', event => {
   saveMessage = 'Changed in another tab · Saving paused';
   document.querySelectorAll('[data-save-label]').forEach(el => { el.textContent = saveMessage; });
   notify('Another tab changed the archive. Edits on this page remain in memory. Export this page before reloading.');
+});
+window.addEventListener('storage', event => {
+  if (event.key !== null && event.key !== REVIEW_KEY) return;
+  practiceStore.changedExternally();
+  if (reviewMode) render();
+});
+window.addEventListener('hashchange', () => {
+  if (modal.open) modal.close(); // A paper approval dialog must not overlay a practice route.
+  reviewMode = window.location.hash === '#review-practice';
+  render(); document.querySelector('#main').focus({preventScroll:true});
 });
 
 function heading(kicker, title, subtitle) {
@@ -165,14 +182,16 @@ function sidecarView() {
 }
 function render() {
   app.innerHTML = `<div class="layout"><aside class="rail"><div class="brand"><img src="brand/rka-project-plugin-app-icon.svg" width="28" height="28" alt=""><div>RKA Writer<small>Paper Studio · W0</small></div></div><div class="rail-scroll">
-    <div class="project"><div class="eyebrow">Research paper / W0</div><h2>${fixture.title}</h2><p>${fixture.subtitle}</p></div>
-    <nav aria-label="Paper outline"><div class="eyebrow">Paper outline</div><div class="outline">${fixture.sections.map((section, index) => `${button(`<span class="outline-number">0${index + 1}</span>${section.title}<small>${index === 0 ? 'Target paragraph located' : 'Provisional · Not blocking'}</small>`, 'section', `data-section="${section.id}" class="${state.section === section.id ? 'active' : ''}" aria-current="${state.section === section.id ? 'true' : 'false'}"`)}${index === 0 ? '<div class="target-label">p1 · Cases and the representation gap</div>' : ''}`).join('')}</div></nav>
+    <div class="project"><div class="eyebrow">${reviewMode ? 'Paused paper · Not part of this exercise' : 'Research paper / W0'}</div><h2>${fixture.title}</h2><p>${reviewMode ? 'Return to the paper to resume its notes and approvals.' : fixture.subtitle}</p></div>
+    <nav aria-label="Paper outline"><div class="eyebrow">${reviewMode ? 'Return to a paper section' : 'Paper outline'}</div><div class="outline">${fixture.sections.map((section, index) => `${button(`<span class="outline-number">0${index + 1}</span>${section.title}<small>${index === 0 ? 'Target paragraph located' : 'Provisional · Not blocking'}</small>`, 'section', `data-section="${section.id}" class="${!reviewMode && state.section === section.id ? 'active' : ''}" aria-current="${!reviewMode && state.section === section.id ? 'true' : 'false'}"`)}${index === 0 && !reviewMode ? '<div class="target-label">p1 · Cases and the representation gap</div>' : ''}`).join('')}</div></nav>
+    <div class="review-entry">${button('Review practice','open-review-practice',`aria-pressed="${reviewMode}"`)}<small>Separate exercises · H1 / H2</small></div>
     </div><div class="rail-footer"><div class="walkthrough-info"><div class="eyebrow">Local walkthrough</div><p>Synthetic case, not a research finding.<br>Fine-grained state, meaningful approvals.</p><div class="row-actions">${button('Walkthrough', 'walkthrough', 'class="quiet"')}${button('About', 'about', 'class="quiet"')}</div></div><div class="theme-control"><label for="theme-mode">Theme</label><select id="theme-mode" aria-label="Appearance theme">${[['system','System'],['light','Light'],['dark','Dark']].map(([mode,label]) => `<option value="${mode}" ${theme.mode === mode ? 'selected' : ''}>${label}</option>`).join('')}</select></div></div></aside>
-    <div class="surface"><header class="topbar"><nav class="view-tabs" aria-label="Authoring views">${[['argument','Argument'],['structure','Structure'],['writing','Writing']].map(([view,label]) => button(label,'view',`data-view="${view}" class="${view === state.view ? 'active' : ''}" aria-pressed="${view === state.view}"`)).join('')}</nav><div class="top-actions"><span class="save-label" data-save-label>${esc(saveMessage)}</span>${button(state.sidecar ? 'Hide discussion' : 'Show discussion','toggle-sidecar',`aria-expanded="${state.sidecar}"`)}${button('Export demo','export')}${button('Walkthrough','walkthrough','class="mobile-only"')}${button('New demo','new-demo','class="quiet"')}</div></header>
+    <div class="surface"><header class="topbar">${reviewMode ? `<div class="review-breadcrumb"><strong>Review practice</strong><span>Separate from your paper</span></div><div class="top-actions">${button('Return to paper','close-review-practice')}</div>` : `<nav class="view-tabs" aria-label="Authoring views">${[['argument','Argument'],['structure','Structure'],['writing','Writing']].map(([view,label]) => button(label,'view',`data-view="${view}" class="${view === state.view ? 'active' : ''}" aria-pressed="${view === state.view}"`)).join('')}</nav><div class="top-actions"><span class="save-label" data-save-label>${esc(saveMessage)}</span>${button(state.sidecar ? 'Hide discussion' : 'Show discussion','toggle-sidecar',`aria-expanded="${state.sidecar}"`)}${button('Export demo','export')}${button('Walkthrough','walkthrough','class="mobile-only"')}${button('New demo','new-demo','class="quiet"')}</div>`}</header>
     <div class="banner">W0 prototype · Supplied text, no model or Core connection. Actions, notes, and drafts stay in this browser. No automatic evaluation tracking. Do not enter sensitive material. ${storageBlocked ? '<strong class="error">Saving is paused. Export this page first.</strong>' : ''}</div>
     ${state.languageUpgrade && !currentApproval(state) ? '<div class="banner">English demo content updated. Your notes, drafts, and historical approvals are preserved in their original language. Review the translated plan before accepting new sentences; previous approvals do not carry over. The original browser archive is untouched.</div>' : ''}
     ${state.workflowUpgrade && !currentApproval(state) ? '<div class="banner">Workflow updated. Previous browser archives are untouched; drafts, notes and history were copied intact. Review terminology and the new exact plan before accepting more text. Old approvals do not authorize the new workflow.</div>' : ''}
-    <div class="workspace ${state.sidecar ? '' : 'focus-mode'}"><main class="main-content" id="main" tabindex="-1">${state.view === 'argument' ? argumentView() : state.view === 'structure' ? outlineView() : writingView()}<div class="footer-line">For interaction testing only. This is not a production architecture, verified research evidence, or a qualified subscription host.</div></main>${state.sidecar ? sidecarView() : ''}</div></div></div>`;
+    <div class="workspace ${reviewMode || !state.sidecar ? 'focus-mode' : ''}"><main class="main-content" id="main" tabindex="-1">${reviewMode ? '<div data-review-root></div>' : state.view === 'argument' ? argumentView() : state.view === 'structure' ? outlineView() : writingView()}<div class="footer-line">For interaction testing only. This is not a production architecture, verified research evidence, or a qualified subscription host.</div></main>${!reviewMode && state.sidecar ? sidecarView() : ''}</div></div></div>`;
+  if (reviewMode) mountPractice(document.querySelector('[data-review-root]'),practiceStore,notify);
 }
 function openModal(title, content, footer = '') {
   modal.innerHTML = `<div class="modal-head"><h2 id="modal-title">${title}</h2>${button('Close','close-modal','aria-label="Close dialog" class="quiet"')}</div><div class="modal-content">${content}</div>${footer ? `<div class="modal-footer">${footer}</div>` : ''}`;
@@ -255,10 +274,16 @@ document.addEventListener('change', event => {
   if (event.target.dataset.style === 'scope' && ['paragraph','section'].includes(event.target.value)) { state.workflow.styleDraft.scope = event.target.value; save(); }
 });
 document.addEventListener('click', event => {
+  if (event.target.closest('.skip')) { event.preventDefault(); document.querySelector('#main').focus(); return; }
   const el = event.target.closest('button[data-action]');
   if (!el || el.disabled) return;
   const a = el.dataset.action;
   try {
+    if (a === 'open-review-practice') { window.location.hash = 'review-practice'; return; }
+    if (a === 'close-review-practice') { window.location.hash = ''; return; }
+    if (reviewMode && ['view','section','focus'].includes(a)) {
+      reviewMode = false; window.history.replaceState(null,'',window.location.pathname + window.location.search);
+    }
     if (a === 'close-modal') { modal.close(); return; }
     if (a === 'export') { exportState(); return; }
     if (a === 'preview-plan') { showPlan(); return; }
